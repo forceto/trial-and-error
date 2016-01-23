@@ -1,0 +1,12 @@
+package chapter5;
+//µ¥ÀýÀà 
+public class Singleton {
+	private static Singleton instance;
+	private Singleton(){}
+	public static Singleton getSingleton(){
+		if(instance==null)
+			instance=new Singleton();
+		return instance;
+	}
+	
+}
