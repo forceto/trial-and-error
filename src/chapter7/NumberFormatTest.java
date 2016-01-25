@@ -34,4 +34,20 @@ public class NumberFormatTest {
 		}
 		
 	}
+	private void newTest(){
+		double d=12312389787.1233345345346;
+//		①给出地区
+		Locale locale=Locale.CHINA;
+//		②传入参数,创建对象
+		NumberFormat nf=NumberFormat.getCurrencyInstance(locale);
+//		③调用格式器
+		String format=nf.format(d);
+		System.out.println(format);
+		Locale l=Locale.ITALY;
+		NumberFormat n=NumberFormat.getIntegerInstance(l);
+		String s=n.format(d);
+		System.out.println(s);
+		NumberFormat n2=NumberFormat.getCurrencyInstance(l);
+		System.out.println(n2.format(d));
+	}
 }
