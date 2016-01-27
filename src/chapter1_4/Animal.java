@@ -1,4 +1,4 @@
-package example;
+package chapter1_4;
 
 public class Animal {
 	public int age,size,weight;

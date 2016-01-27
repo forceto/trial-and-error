@@ -1,4 +1,4 @@
-package example;
+package chapter1_4;
 
 public class TestArray {
 	public TestArray()
