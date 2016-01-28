@@ -184,6 +184,7 @@ public class SetTest {
 	
 }
 /*
+ * Set中性能最好：EnumSet，但只能存同一个枚举类的枚举值作为元素
  *整体性能   HashSet>TreeSet
  *增、查：HashSet
  *排序：TreeSet
