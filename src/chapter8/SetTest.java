@@ -183,3 +183,10 @@ public class SetTest {
 	}
 	
 }
+/*
+ *整体性能   HashSet>TreeSet
+ *增、查：HashSet
+ *排序：TreeSet
+ *遍历:LinkedHashSet
+ * */
+ 
