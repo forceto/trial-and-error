@@ -1,5 +1,6 @@
 package chapter8;
 
+import java.util.Comparator;
 import java.util.LinkedHashSet;
 import java.util.TreeSet;
 
@@ -76,6 +77,7 @@ public class SetTest {
 		//当修改的set中第一个的age后，第二个的age也更改了，说明二者在内存中是同一个元素
 	}
 	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private void TreeSetObjectTest2() {
 		//程序修改了放入TreeSet中的对象的实例变量后，TreeSet不会再次调整顺序
 		@SuppressWarnings("rawtypes")
@@ -105,31 +107,58 @@ public class SetTest {
 				return count>r.count? 1 : count<r.count? -1 : 0; 
 			}
 			
-		}	
+			
+		}
 		
-		TreeSet ts=new TreeSet();
-		ts.add(new R(5));
-		ts.add(new R(-3));
-		ts.add(new R(9));
-		ts.add(new R(-2));
-		System.out.println(ts);
+		System.out.println("r1=-3\tr2=5");
+		TreeSet ts1=new TreeSet();
+		ts1.add(new R(5));
+		ts1.add(new R(-3));
+		ts1.add(new R(9));
+		ts1.add(new R(-2));
+		System.out.println(ts1);
+		
 		//取出第一个元素
-		R r1=(R)ts.first();
+		R r1=(R)ts1.first();
 		//改值
 		r1.count=20;
 		//取出最后一个元素
-		R r2=(R)ts.last();
+		R r2=(R)ts1.last();
 		//该值
 		r2.count=-2;
 		
-		System.out.println(ts);
-		System.out.println(ts.remove(new R(-2)));
-		System.out.println(ts.remove(new R(5)));
-		System.out.println(ts);
-		System.out.println(ts.remove(new R(-2)));
-		System.out.println(ts);
-		System.out.println(ts.add(new R(100)));
-		System.out.println(ts);
+		System.out.println(ts1);
 		//修改后，TreeSet不再自动排序。
+		System.out.println(ts1.remove(new R(-2)));
+		System.out.println(ts1.remove(new R(5)));
+		System.out.println(ts1);
+		System.out.println(ts1.remove(new R(-2)));
+		System.out.println(ts1);
+		System.out.println(ts1.add(new R(100)));
+		System.out.println(ts1);
+		
+		
+		//实现Comparator接口，进行自定义排序
+		@SuppressWarnings("rawtypes")
+		class DescendSort implements Comparator{
+
+			//compare(a,b)类似于 a.compareTo(b)
+			public int compare(Object o1, Object o2) {
+				R r1=(R)o1;
+				R r2=(R)o2;
+				//总是从小到大输出，即return -1 的认为是小的
+				return r1.count < r2.count ? 1:r1.count > r2.count? -1:0;
+			}
+			
+		}
+								//传入自定义排序规则
+		TreeSet ts2=new TreeSet(new DescendSort() );
+		ts2.add(new R(5));
+		ts2.add(new R(-3));
+		ts2.add(new R(9));
+		ts2.add(new R(-2));
+		System.out.println(ts2);
 	}
+	
+	
 }
