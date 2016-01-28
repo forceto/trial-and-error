@@ -1,12 +1,15 @@
 package chapter8;
 
 import java.util.Comparator;
+import java.util.EnumSet;
 import java.util.LinkedHashSet;
 import java.util.TreeSet;
 
+import chapter5.SeasonEnum;
+
 public class SetTest {
 	public SetTest() {
-		TreeSetObjectTest2();
+		EnumSetTest();
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
@@ -151,7 +154,7 @@ public class SetTest {
 			}
 			
 		}
-								//传入自定义排序规则
+							//传入自定义排序规则
 		TreeSet ts2=new TreeSet(new DescendSort() );
 		ts2.add(new R(5));
 		ts2.add(new R(-3));
@@ -160,5 +163,23 @@ public class SetTest {
 		System.out.println(ts2);
 	}
 	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	private void EnumSetTest(){ 
+		EnumSet set1=EnumSet.allOf(SeasonEnum.class);
+		System.out.println(set1);
+		//create empty set
+		EnumSet set2=EnumSet.noneOf(SeasonEnum.class);
+		System.out.println(set2);
+		set2.add(SeasonEnum.WINTER);
+		set2.add(SeasonEnum.FALL);
+		System.out.println(set2);
+		EnumSet set3=EnumSet.of(SeasonEnum.WINTER, SeasonEnum.SUMMER);
+		System.out.println(set3);
+		EnumSet set4=EnumSet.range(SeasonEnum.SUMMER, SeasonEnum.WINTER);
+		System.out.println(set4);
+		EnumSet set5=EnumSet.complementOf(set4);
+		System.out.println(set5);
+		
+	}
 	
 }
