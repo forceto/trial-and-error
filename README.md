@@ -15,6 +15,7 @@
 
 5.切换已代开的编辑窗口	ctrl+e
 
+##性能比较
 **LinkedList 的插入、删除性能好**
 
 *ArrayList和ArrayDequeue的随机访问性能好*
