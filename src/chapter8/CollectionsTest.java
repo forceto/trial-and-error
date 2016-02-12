@@ -46,6 +46,7 @@ public class CollectionsTest {
 		List unmod=Collections.emptyList();
 		//只有一个元素、不可变的Set
 		Set unmodSet=Collections.singleton("Java");
+//		unmodSet.add("hello");
 		
 		Map m=new HashMap();
 		m.put("Java", 1);
