@@ -19,3 +19,10 @@
 **LinkedList 的插入、删除性能好**
 
 *ArrayList和ArrayDequeue的随机访问性能好*
+***
+*Set & List --->add*
+
+*Queue  ---> offer*
+
+*Map ---> put*
+

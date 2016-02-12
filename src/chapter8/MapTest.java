@@ -1,13 +1,21 @@
 package chapter8;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.Hashtable;
+import java.util.IdentityHashMap;
 import java.util.Map;
+import java.util.Properties;
+import java.util.TreeMap;
+import java.util.WeakHashMap;
+
 
 public class MapTest {
 	
-	public MapTest(){
-		hashMapTest();
+	public MapTest() throws Exception{
+		enumMapTest();
 	}
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
@@ -76,6 +84,94 @@ public class MapTest {
 		System.out.println(h.containsValue("sdfa"));
 		System.out.println();
 		System.out.println(h.containsKey(new A(87563)));
+	}
+	
+	private void propertiesTest() throws Exception{ 
+		Properties pro=new Properties();
+		pro.setProperty("username", "Lee");
+		pro.setProperty("password", "123456");
+		pro.store(new FileOutputStream("a.ini"), "comment lines");
+		Properties p=new Properties();
+		p.setProperty("gender", "male");
+		p.load(new FileInputStream("a.ini"));
+		System.out.println(p);
+		
+	}
+	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	private void treeMapTest(){ 
+		//定义测试类     
+		//treeMap 自然排序，必须在类中实现Comparable接口
+		class R implements Comparable{
+			
+			int count;
+			R(int count){
+				this.count=count;
+			}
+			
+			//控制key的输出
+			public String toString(){
+				return "R[count:"+count+"]";
+			}
+			
+			@Override
+			public int compareTo(Object o) {
+				R r=(R)o;
+				return count>r.count? 1:count<r.count? -1:0;
+			}
+			
+		}
+		
+		TreeMap t=new TreeMap();
+		t.put(new R(3), "java EE");
+		t.put(new R(-5), "java");
+		t.put(new R(9), "android");
+		System.out.println(t); 
+		
+		//方法测试
+		System.out.println("key最小的键值对-->"+t.firstEntry());
+		System.out.println("key最大的键值对-->"+t.lastEntry());
+	}
+	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	private void weakHashMapTest(){
+		 WeakHashMap weak=new WeakHashMap();
+		 weak.put(new String("A"),new String("1"));
+		 weak.put(new String("B"), new String("2"));
+		 weak.put(new String("C"), new String("3"));
+		 
+		 weak.put("java", new String("4"));
+		 System.out.println(weak);
+		 System.gc();
+		 System.runFinalization();
+		 System.out.println(weak);
+	}
+	
+	@SuppressWarnings({"rawtypes","unchecked"})
+	private void identityHashMapTest(){
+		IdentityHashMap i=new IdentityHashMap();
+		/*
+		 * 在IdentityHashMap中，key之间采用==进行严格判断
+		 * 对于引用类型变量，==比较的是对象的地址
+		 */
+		i.put(new String("java1"), 1);
+		i.put(new String("java2"), 2);
+		i.put("java", 11);
+		i.put("java", 22);
+		System.out.println(i);
+	}
+	
+	@SuppressWarnings({"rawtypes","unchecked"})
+	private void enumMapTest(){
+		/*
+		 *创建EnumMap时，指定一个枚举类
+		 * key必须是该枚举类的值
+		 * EnumMap内部按照枚举值在枚举类中定义的顺序排序
+		 */
+		EnumMap e=new EnumMap(MonthTest.class);
+		e.put(MonthTest.APRIL, "人间四月芳菲雪");
+		e.put(MonthTest.AUGUST, "霜叶红于二月花");
+		System.out.println(e);
 	}
 }
 
