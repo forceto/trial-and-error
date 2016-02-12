@@ -1,6 +1,6 @@
 package chapter8;
 
-public enum MonthTest {
+public enum MonthEnum {
 	JANUARY,FEBRUARY,MARCH,APRIL,MAY,JUNE,
 	JULY,AUGUST,SEPTEMBER,OCTOBER,NOVEMBER,DECEMBER;
 }

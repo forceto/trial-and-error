@@ -168,9 +168,9 @@ public class MapTest {
 		 * key必须是该枚举类的值
 		 * EnumMap内部按照枚举值在枚举类中定义的顺序排序
 		 */
-		EnumMap e=new EnumMap(MonthTest.class);
-		e.put(MonthTest.APRIL, "人间四月芳菲雪");
-		e.put(MonthTest.AUGUST, "霜叶红于二月花");
+		EnumMap e=new EnumMap(MonthEnum.class);
+		e.put(MonthEnum.APRIL, "人间四月芳菲雪");
+		e.put(MonthEnum.AUGUST, "霜叶红于二月花");
 		System.out.println(e);
 	}
 }
