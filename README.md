@@ -32,6 +32,6 @@
 
 |EnumMap   > |HashMap   > |LinkedHashMap  > |TreeMap|
 |------------|:------------:|:-----------------:|-------:|
-|HashMap最常用|LinkedHashMap迭代性能最好|TreeMap用于查找|
+|EnumMap性能最好|HashMap最常用|LinkedHashMap迭代性能最好|TreeMap用于查找|
 
 
