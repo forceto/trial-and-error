@@ -10,7 +10,7 @@ import java.util.Set;
 
 public class CollectionsTest {
 	public CollectionsTest(){
-		unmodifiableTest();
+		listCollectionTest();
 	}
 	
 	@SuppressWarnings({"rawtypes","unchecked"})
