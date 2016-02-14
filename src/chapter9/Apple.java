@@ -1,6 +1,6 @@
 package chapter9;
 
-//带泛型声明的
+//带泛型声明的类
 public class Apple<T> {
 	private T info;
 	public Apple(T info){

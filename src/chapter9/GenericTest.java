@@ -47,6 +47,7 @@ public class GenericTest {
 		System.out.println(r.getInfo());
 	}
 	
+	//带泛型声明的类
 	private void SmallAppleTest(){
 		SmallApple s=new SmallApple("smallApple...");
 		System.out.println(s.getInfo());
