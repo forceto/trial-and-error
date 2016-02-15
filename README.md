@@ -21,7 +21,11 @@
 
 *Map ---> put*
 
-##<center>性能比较</center>
+##<center>性能分析</center>
+###Set
+|EnumSet|HashSet|LinkedHashSet|TreeSet|
+|-------|:------:|:----------:|:-----:|
+|性能最好|最常用，增、删|遍历最快        |排序|
 ###List
 *LinkedList 的插入、删除性能好*
 
