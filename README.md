@@ -28,7 +28,7 @@
 |性能最好|最常用，增、删|遍历最快        |排序|
 ###List
 
-|ArrayList、ArrayDequeue|LinkedList|
+|ArrayList|ArrayDequeue|LinkedList|
 |----------|:-----------:|:-------:|
 |最常用、随机访问|随机访问	|插入、删除|
 
