@@ -27,9 +27,6 @@
 |-------|:------:|:----------:|:-----:|
 |性能最好|最常用，增、删|遍历最快        |排序|
 ###List
-*LinkedList 的插入、删除性能好*
-
-*ArrayList和ArrayDequeue的随机访问性能好*
 
 |ArrayList、ArrayDequeue|LinkedList|
 |----------|:-----------:|:-------:|
