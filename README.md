@@ -31,6 +31,10 @@
 
 *ArrayList和ArrayDequeue的随机访问性能好*
 
+|ArrayList、ArrayDequeue|LinkedList|
+|----------|:-----------:|:-------:|
+|最常用、随机访问|随机访问	|插入、删除|
+
 ###Map
 
 |EnumMap   > |HashMap   > |LinkedHashMap  > |TreeMap|
