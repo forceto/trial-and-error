@@ -1,4 +1,4 @@
-package chapter1_4;
+package chapter4;
 
 public class Bird extends Animal{
 	public Bird()

@@ -1,4 +1,4 @@
-package chapter1_4;
+package chapter4;
 
 public class Animal {
 	public int age,size,weight;

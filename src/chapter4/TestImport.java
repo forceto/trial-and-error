@@ -1,4 +1,4 @@
-package chapter1_4;
+package chapter4;
 import static java.lang.Math.*;
 
 import java.math.BigDecimal;

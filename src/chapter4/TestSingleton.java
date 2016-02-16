@@ -1,4 +1,4 @@
-package chapter1_4;
+package chapter4;
 
 public class TestSingleton {
 	//单例类，通过该类创建的任意个数的实例都指向同一个对象。

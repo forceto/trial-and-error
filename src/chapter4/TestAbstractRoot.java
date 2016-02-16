@@ -1,4 +1,4 @@
-package chapter1_4;
+package chapter4;
 
 public abstract class TestAbstractRoot {
 	{
