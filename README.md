@@ -14,6 +14,8 @@
 
 5.切换已代开的编辑窗口	ctrl+e
 
+
+
 ##<center>插入的不同语法</center>
 *Set & List --->add*
 

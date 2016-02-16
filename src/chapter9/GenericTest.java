@@ -8,9 +8,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+
+
 public class GenericTest {
 	public GenericTest(){
-		useGenericMthod();
+		useCopy();
 	}
 	
 	//java 7 的菱形语法
@@ -151,9 +153,88 @@ public class GenericTest {
 			apple.add(i*i);
 		}
 		List<Number> fruit=new ArrayList<>();
+		//直接传入参数，自动匹配类型
 		genericMethodTest2(apple, fruit);
 		System.out.println("apple:"+apple);
 		System.out.println("fruit:"+fruit);
+	}
+	
+	private void use_Foo_GenericConstructorTest(){ 
+		//隐式指定泛型构造器中的T为String
+		new Foo_GenericConstructorTest("Java");
+		//隐式指定泛型构造器中的T为Integer
+		new Foo_GenericConstructorTest(200);
+		
+		/*
+		 *显式指定泛型构造器中的T为String
+		 *显示指定的类型必须与传入数据类型相一致 
+		 */
+		new <String> Foo_GenericConstructorTest("Java EE");
+		
+		/*
+		 * 显示指定的类型String与传入数据类型Double不一致，故出错
+		 * new <String> Foo_GenericConstructorTest("123.23");
+		 */
+	}
+	
+	//self-practice generic method
+	private <T extends Number> void green(T t){
+		System.out.println(t);
+	}
+	
+	private void useGreen(){
+		green(new Integer(12312));
+	}
+	
+	private void car(){
+		Car_GenericClass<String> volvo=new Car_GenericClass<String>("volvo");
+		System.out.println(volvo.getName());
+		Car_GenericClass<Integer> audi=new Car_GenericClass<Integer>(0000);
+		System.out.println(audi.getName());
+		Car_GenericClass<Double> chery=new Car_GenericClass<Double>(23432.234);
+		System.out.println(chery.getName());
+		System.out.println("----------------------");
+		Pc<Double> d=new Pc<>(1231.12312);
+		Pc<Number> n=new Pc<>(12312.2f);
+	}
+	
+	/*
+	 * 通配符的下限
+	 * <? super T>  ?代表的类必须是T或T的父类
+	 */
+	private <T> T copy(Collection<? super T> dest , Collection<T> src){
+		T last=null;
+		for(T atom:src){
+			last=atom;
+			dest.add(atom);
+		}
+		return last;
+	}
+	
+	private void useCopy(){
+		//T-->Integer
+		List<Number> ln=new ArrayList<>();
+		List<Integer> li=new ArrayList<>();
+		li.add(5);
+		Integer last=copy(ln, li);
+		System.out.println(last);
+	}
+	
+	private <T> T copy2(Collection<T> dest, Collection<? extends T> src){
+		T last=null;
+		for(T atom:src){
+			last=atom;
+			dest.add(atom);
+		}
+		return last;
+	}
+	
+	private void useCopy2(){
+		List<Number> ln=new ArrayList<>();
+		List<Integer> li=new ArrayList<>();
+		li.add(32);
+		//类型不匹配 last为Number
+		//Integer last=copy2(ln, li);
 	}
 }
 
