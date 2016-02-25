@@ -35,25 +35,9 @@
 	</natures>
 	<linkedResources>
 		<link>
-			<name>isolated</name>
-			<type>2</type>
-			<location>G:/EditPlus Workspace</location>
-		</link>
-		<link>
 			<name>WebContent/html-trial</name>
 			<type>2</type>
 			<locationURI>PARENT-2-PROJECT_LOC/Sublime%20Workspace/html-trial</locationURI>
 		</link>
 	</linkedResources>
-	<filteredResources>
-		<filter>
-			<id>1456052306949</id>
-			<name>isolated</name>
-			<type>5</type>
-			<matcher>
-				<id>org.eclipse.ui.ide.multiFilter</id>
-				<arguments>1.0-name-matches-false-false-*.java</arguments>
-			</matcher>
-		</filter>
-	</filteredResources>
 </projectDescription>
