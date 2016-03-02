@@ -1554,6 +1554,7 @@ System.out.println(sdf.format(d));		//输出	16-3-1 上午5:54
 	* boolean removeAll(Collection c) 	删除交集
 	* boolean containsAll(Collection c)		判断是否包含指定集合
 	* boolean retainAll(Collection c ) 		获取交集
+	
 		```java
 		//获取交集，当调用集合被改变时，返回true，保持不变返回false
 		System.out.println(c1.retainAll(c2));
