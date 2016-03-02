@@ -1287,7 +1287,7 @@
 * 数量词
 * 分组
 
-		```java
+	```java
 		String regex = "[abc]";    //a或b或c，  [ ] 代表单个字符
 		String regex = "[^abc]";  // ^ 表示除了，即除了a,b,c外的单个字符
 		String regex = "[a-zA-Z]";	//单个字符，a 到 z或者A到Z
@@ -1360,7 +1360,7 @@
 		//$1代表 第一组中的内容，即重复的那一个字符
 		String s2 = s1.replaceAll("(.)\\1+", "$1");  
 		System.out.println(s2);
-		```
+	```
 ##常用类
 * Math
 
