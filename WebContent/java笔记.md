@@ -1808,3 +1808,214 @@ System.out.println(sdf.format(d));		//输出	16-3-1 上午5:54
 	* LinkedHashSet
 		* 底层是链表实现的，是**Set集合中唯一一个存取顺序相同**的集合对象
 		* 因为是HashSet的子类，索引也是保证元素唯一的，与HashSet的原理一样
+	* TreeSet
+		* 特点：是用来对元素进行排序的，可以保证元素的唯一
+		* 使用方式：
+			* 1.自然排序 （Comparable）————从小到大
+				* TreeSet类的add(...)方法会把存入的对象提升为Comparable类型，所以如果存入的对象没有实现Comparable接口会报错：类型转换异常
+				* 调用对象的compareTo(...)方法和集合中的对象进行比较。要存入的对象调用该方法，将已经存在于集合中的对象当做参数传进去。
+				* 根据compareTo(...)方法返回的结果进行存储
+			* 2.比较器排序（Comparator）————定制规则
+				* 创建TreeSet时制定一个Comparator
+				* 如果传入了Comparator的子类对象，那么TreeSet就会优先按照比较器中的规则进行排序
+				* add(...)方法内部会自动调用Comparator接口中的compare(T o1, To o2)方法进行排序
+			* 两种方式的区别
+				* TreeSet空参构造，默认按照自定义类中Comparable的顺序
+				* TreeSet构造方法中传入Comparator，则优先按照Comparator的规则排序
+		* 存储结构：二叉树结构，存储时左小右大，输出时顺序为中序遍历，总是从小往大输出
+		* 可以在TreeSet的构造方法中传入一个Comparator（接口）比较器来自定义排序规则
+		* **自定义类，要么在自定义类中实现Comparable接口，并重写compareTo(T o) 方法，要么在TreeSet的构造方法中传入Comparator比较器**
+		* 关于Comparable接口，**8中基本数据类型的包装类都实现了该接口并重写了compareTo(T o) 方法**
+
+		```java
+		//自定义类实现Comparable接口
+		public class Person implements Comparable<Person>{
+		private String name;
+		private int age;
+		...构造，get，set...
+		重写接口中的int comparaTo(T o)方法,     该接口中只有这一个方法
+		//按照姓名的长度排序
+			public int compareTo(Person o) {
+			int length = this.name.length() - o.name.length();
+			int num = length == 0 ? this.name.compareTo(o.name) : length;
+			return num == 0 ? this.age - o.age : num;
+			}
+		}
+
+
+
+		//创建比较器
+		//创建一个类，实现Comparator接口
+		class CompareByLen implements Comparator<String> {
+			//重写int compare(T o1,T o2)方法
+			public int compare(String o1, String o2) {
+				int length = o1.length() - o2.length();		//比较长度
+				int num = length == 0 ? o1.compareTo(o2) : length;	//比较内容
+				return num;	
+			}
+			/*
+			 * Comparator接口中有compareTo(...)和equeals(...)2个方法
+			 * CompareByLen类默认继承Object类，而Object类中重写了eqeuals(...)方法
+			 * CompareByLen类继承了Object类中的equals(...)方法，
+			 * 相当于已经有了，所以不用重写
+			 */
+		}
+
+											//匿名内部类
+		TreeSet<String> ts = new TreeSet<>(new Comparator<String>() {
+			@Override
+			public int compare(String o1, String o2) { 	
+				int num = o1.compareTo(o2);
+				//保留重复元素
+				int result = num != 0 ? num : 1;	
+				return result;
+			}
+		});
+		```
+
+* Map
+	* 双列集合
+	* LinkedHashMap
+		* 保证键的唯一，保证存取顺序一致
+
+```java
+Map<String,Integer> map = new HashMap<>();
+map.put("张三", 23);		//添加元素
+map.put("李四", 24);
+map.put("王五", 25);
+map.put("赵六", 26);
+//相同键值不存储，进行的是value值覆盖，把被覆盖的value值返回
+Integer i = map.put("张三", 99);
+System.out.println(i);
+System.out.println(map);
+Integer i2 = map.remove("王五");		//根据键删除元素，返回键对应的值
+System.out.println(i2);
+System.out.println(map);
+//判断是否包含指定的键
+System.out.println(map.containsKey("李四")); 
+//判断是否包含指定的值
+System.out.println(map.containsValue(24));
+//获取所有的值，返回Collection
+Collection<Integer> c = map.values();
+System.out.println(c);
+//获取map中的元素个数
+System.out.println(c.size());
+
+
+遍历方式1.1
+Set<String> keyset = map.keySet();
+Iterator<String> it = keyset.iterator();
+while (it.hasNext()) {
+	String key = it.next();
+	Integer i = map.get(key);
+	System.out.println(key + " = " + i );
+}
+
+遍历方式1.2         ======推荐使用======
+for( String key : map.keySet()) {
+	System.out.println(key + " = " + map.get(key));
+}
+
+
+遍历方式2.1
+public static void mapEntry(Map<String, Integer> map) {
+//Map.Entry说明Entry是Map的内部接口。
+//将键和值封装成了Entry对象，并存储在Set中
+//HashMap类中的内部类Entry其实是Map.Entry接口的子类（实现类） 
+Set<Map.Entry<String,Integer>> entryset = map.entrySet();
+//用Iterator迭代器遍历Set，获取每一个Entrt对象，
+//每一次拿到的都是Map.Entry<String,Integer>对象
+//所以Iterator的泛型为<Map.Entry<String,Integer>>
+Iterator<Map.Entry<String, Integer>> it = entryset.iterator();
+while (it.hasNext()) {
+	//获取每一个Entry对象
+	Map.Entry<String, Integer> entry = it.next(); //父类引用指向子类对象
+	//直接获取的是子类对象（导包 java.util.Map.Entry）
+	//Entry<String, Integer> entry = it.next();	
+	String key = entry.getKey();		//从Entry对象中获取键
+	Integer value = entry.getValue();	//从Entry对象中获取值
+	System.out.println(key + " = " + value);
+}
+
+遍历方式2.2           ======推荐使用======
+for (Map.Entry<String, Integer> en : map.entrySet()) {
+	System.out.println(en.getKey() + " = " + en.getValue());
+}
+或（要导包 java.util.Map.Entry）
+for (Entry<String, Integer> en : map.entrySet()) {
+	System.out.println(en.getKey() + " = " + en.getValue());
+}
+
+
+public static void main(String[] args) {
+	String s = "qweqweqewqqw";
+	char[] arr = s.toCharArray();
+	HashMap<Character, Integer> hm = new HashMap<>();
+	for (char ch : arr) {
+		/*if (!hm.containsKey(ch)) {
+			hm.put(ch, 1);
+		} else {
+			//通过键得到值  value  get(key)
+			hm.put(ch, hm.get(ch) + 1);
+		}*/
+		//把if优化为三元运算符
+		hm.put(ch, !hm.containsKey(ch) ? 1 : hm.get(ch) + 1);
+	}
+	//hm.keySet()  代表所有键集合
+	for (Character key : hm.keySet()) {
+		//hm.get(key)  用过键来获取值
+		System.out.println(key + " " + hm.get(key));	
+	} 
+}
+
+//嵌套集合的遍历，2种方式
+public static void main(String[] args) {
+	HashMap<Student, String> hm8 = new HashMap<>();
+	hm8.put(new Student("王五", 5), "深圳");
+	hm8.put(new Student("张三", 23), "上海");
+	hm8.put(new Student("李四", 2), "广州");
+	hm8.put(new Student("张三", 123), "earth");
+	HashMap<Student, String> hm9 = new HashMap<>();
+	hm9.put(new Student("王1", 1), "深圳");
+	hm9.put(new Student("张3", 3), "上海");
+	hm9.put(new Student("李4", 4), "广州");
+	hm9.put(new Student("张5", 5), "earth");
+	HashMap<HashMap<Student,String>, String> hm2 = new HashMap<>();
+	hm2.put(hm9, "第99期");
+	hm2.put(hm8, "第88期");
+	demo2(hm2);
+	//demo1(hm2);
+}
+
+public static void demo1(HashMap<HashMap<Student, String>, String> hm2) {
+	for(Entry<HashMap<Student, String>, String> en1 : hm2.entrySet()) {
+		System.out.println(en1.getValue());
+		for (Entry<Student,String> en2 : en1.getKey().entrySet()) {
+			System.out.println(en2.getKey().getName() + " " + en2.getKey().getAge() + " " +en2.getValue() );
+		}
+	}
+}
+
+public static void demo2(HashMap<HashMap<Student, String>, String> hm2) {
+	for(HashMap<Student, String> h : hm2.keySet()) {
+		System.out.println(hm2.get(h));
+		for (Student s : h.keySet()) {
+			System.out.println(s.getName() + " " + s.getAge() + " " + h.get(s));
+		}
+	}
+}
+```
+	
+
+|共同点：底层都是哈希算法，都是双列集合|HashMap					|Hashtable						|
+|-------------------------------|:-------------------------:|:-----------------------------:|
+|区别							|是线程不安全的，效率高		|线程安全的，效率低				|
+|								|可以存储null键和null值		|不能存储null键和null值			|
+								
+* Collections  工具类，全是静态方法，直接类名.调用
+	* <T> void sort (List<T> list)   
+		* 若是自定义类，必须实现Comparable接口才能使用
+	* <T> int binarySearch(List<?> list,T key)		前提是list已经有序
+	* <T> max (Collection<?> collection)
+	* void reverse(List<?> list)
+	* void shuffle(List<?> list)		洗牌
