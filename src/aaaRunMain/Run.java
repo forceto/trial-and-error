@@ -1,14 +1,13 @@
 package aaaRunMain;
 
-
-import chapter4.*;
-import chapter5.*;
-import chapter7.*;
-import chapter8.*;
-import chapter9.*;
-
+import chapter10.Person;
 public class Run {
 	public static void main(String args[]) {
+		Person p = new Person();
+		p.setAge(-3);
+	}
+
+	public static void exception1(String[] args) {
 		try{
 			int a=Integer.parseInt(args[0]);
 			int b=Integer.parseInt(args[1]);
