@@ -1627,9 +1627,9 @@ System.out.println(sdf.format(d));		//输出	16-3-1 上午5:54
 	* 泛型最好不要定义成Object，没有意义
 * 泛型通配符	<?>
 	* ? extends E
-		* 向下限定，E及其子类
+		* 固定上边界，向下限定，E及其子类
 	* ? super E
-		* 向上限定，E及其子类
+		* 固定下边界，向上限定，E及其子类
 
 
 	```java
@@ -1769,6 +1769,10 @@ System.out.println(sdf.format(d));		//输出	16-3-1 上午5:54
 		```
 
 * Set————无索引，不可重复，无序（存取不一致）
+
+	|			|HashSet（常用）		|LinkedHashSet				|TreeSet				|
+	|-----------|:---------------------:|:-------------------------:|:---------------------:|	
+	|底层		|哈希算法				|链表实现，哈希算法			|二叉树					|
 	* HashSet
 		* 原理
 			* 使用Set集合都是需要去掉重复元素的，如果在存储的时候逐个equals()比较，效率较低，哈希算法提高了去重复的效率，降低了使用eqeuals()方法的次数。
@@ -1877,6 +1881,10 @@ System.out.println(sdf.format(d));		//输出	16-3-1 上午5:54
 	* 双列集合
 	* LinkedHashMap
 		* 保证键的唯一，保证存取顺序一致
+
+	|			|HashMap（常用）		|LinkedHashMap			|TreeMap			|
+	|-----------|:---------------------:|:---------------------:|:-----------------:|
+	|底层针对键	|哈希算法				|链表					|二叉树				|
 
 ```java
 Map<String,Integer> map = new HashMap<>();
@@ -2019,3 +2027,1145 @@ public static void demo2(HashMap<HashMap<Student, String>, String> hm2) {
 	* <T> max (Collection<?> collection)
 	* void reverse(List<?> list)
 	* void shuffle(List<?> list)		洗牌
+
+##异常
+* 异常：java程序在运行过程中出现的错误
+* 异常的继承体系
+	* **Throwable （顶层）**
+		* Error
+		* Exception
+			* RuntimeException
+* main()函数遇到一个问题时，有2种处理方式：
+	* 1. 自己将该问题处理，然后继续运行
+	* 2. 自己没有针对的处理方式，只有交给调用main()的JVM来处理
+		* JVM执行默认的异常处理机制：将该异常的名称、异常的信息、异常出现的位置带因在控制台上，同时将程序停止运行
+* try	catch	finally
+	* try ：用来检测异常
+	* catch : 用来捕获异常
+	* finall ：释放资源
+* try catch
+	* 当通过try  catch 将问题处理了，程序就会继续执行
+	* try 后跟多个catch，小的异常往前放，大的异常往后放。
+		* 如果大的放前面，就会将所有的子类对象接受，后面的catch就没有意义了
+
+	```java
+
+	// try后跟多个catch
+	int a = 10;
+		int b = 0;
+		int[] arr = {1,2,4,5,6};
+		try {
+			System.out.println(a / b);
+			/*System.out.println(arr[10]);
+			arr = null;
+			System.out.println(arr[0]);*/
+			//  ArithmeticException  e = new ArithmeticException("/ by Zero")
+		} catch (ArithmeticException e) {   
+
+			System.out.println("出错了，除数不能为0");
+		} catch (ArrayIndexOutOfBoundsException e) {
+			System.out.println("数组索引越界");
+		} catch (NullPointerException e) {
+			System.out.println("空指针异常");
+		} catch (Exception e) {
+			System.out.println("出错了");
+		}
+		System.out.println("over");
+
+
+	//JDK 7  处理多个异常
+		int a = 10;
+		int b = 0;
+		int[] arr = {1,2,4,5,6};
+		try {
+			System.out.println(a /b );
+			System.out.println(arr[10]);
+		} catch (ArithmeticException | ArrayIndexOutOfBoundsException e) {
+			System.out.println("出错了。。。");
+		}
+	```
+
+* 异常分为2大类：
+	* 编译时异常
+		* 程序员必须显示处理，否则无法通过编译。（未雨绸缪异常）
+	* 运行时异常
+		* 所有的RuntimeException类及其子类的实例都成为运行时异常，其他的异常就是编译时异常
+		* 程序员反对错误，需要回来修改
+* Throwable的常用方法
+
+	|方法名			|作用									|
+	|---------------|:-------------------------------------:|
+	|String  getMessage()	|获取异常信息					|
+	|String  toString()     |获取异常类名和异常信息			|
+	|void printStackTrace() |获取异常类名、异常信息、异常出现的位置|
+
+* throw
+	* 在功能方法内部出现某种情况，程序不能继续运行，需要进行跳转时，就用throw把异常对象抛出
+
+* throws 的方式处理异常
+	* 定义功能方法时，需要把出现的问题暴露出来让调用者去处理，就通过throws在方法上标识
+	* 编译时异常的抛出必须对其进行处理
+	* 运行时异常的抛出可以处理也可以不处理
+	* 运行时异常在编译时不用处理，所以可以把不抛出
+	* 在方法中抛出一个运行时异常时对象时，在方法上不用做异常声明
+	* 但是，如果排除的是一个编译时异常，在方法上就必须做异常声明，否则报错
+
+
+|区别			|throws					|throw				|
+|---------------|:---------------------:|:-----------------:|
+|出现			|在方法声明中			|方法体内			|
+|后面			|跟一个或多个异常类名，用逗号隔开|跟一个异常对象|
+|都表示抛出异常	|由该方法的调用者来处理|由方法体内的语句处理|
+
+* finally
+	* 被finally控制的语句一定会执行（哪怕之前有return也会先执行）
+		* 特殊情况：在执行到finally之前JVM退出了（eg. System.exit(0) ）
+	* finally的作用
+		* 用于释放资源，在IO流操作和数据库操作中会见到
+
+	|区别			|					  								 						|
+	|---------------|:-------------------------------------------------------------------------:|
+	|final 			|1.修饰类，该类不能被继承 2.修饰方法，该方法不能被重写 3.修饰变量，该变量只能复制一次|
+	|finally 		|是try语句中的一个语句体|
+	|finalize		|是一个方法。当垃圾回收器确定不存在该对象的更多引用时，有对象的垃圾回收器调用此方法|
+					
+
+* 自定义异常
+	* 通过名字取反到底是什么异常，有针对的解决办法
+	* 如果想让异常是运行时异常则继承RuntimeException
+ 	* 如果想让异常是编译时异常则继承Exception
+ 	* 自定义异常注意事项：
+ 		* 子类重写父类方法时，子类的方法必须抛出相同的异常或父类异常的子类。
+ 		* 如果父类抛出了多个异常，子类重写父类时，只能抛出相同的异常或者是它的子集，子类不能抛出父类没有的异常
+ 		* 如果被重写的方法没有异常抛出，那么子类的方法绝对不可以抛出异常。如果子类方法内有异常发生，那么子类只能try，不能throws
+ 	* 如何使用异常处理
+ 		* 原则：如果该功能内部可以将问题处理，用try，如果处理不了，则throws，交由调用者处理。
+ 		* 区别：
+ 			* 后续程序需要继续运行就try
+ 			* 后续程序不需要继续运行就throws
+ 		* 如果JDK没有提供对应的异常，就需要自定义异常
+
+	```java
+	public class Test1 {
+		public static void main(String[] args) {
+			Demo d = new Demo();
+			System.out.println(d.get());		//	输出 30
+		}
+	}
+	
+	class Demo {
+		int x = 10;
+		public int get(){
+			try {
+				x = 20 ;
+				System.out.println(1 / 0 );
+				return x;
+			} catch (Exception e) {
+			/*
+			 * try块中抛出异常后，被catch块接受，
+			 * 执行  x = 30;
+			 * 接下来时return，此时，return执行了，
+			 * return建立出一个返回路径，相当于将x = 30 用返回路径撞到了一个箱子里
+			 * 然后return判断后面是否有finally语句，
+			 * 如果有finally语句，则去执行finally
+			 * 虽然在finally中修改了x，但是返回路径中的x并没有改，
+			 * 执行完finally之后，彻底返回 x = 30
+			 */
+				x = 30 ;
+				return x;
+			} finally {			
+				x = 40;
+			/*
+			 * 千万不要再finally中写return，
+			 * 因为finally是为了释放资源，是一定会执行的，
+			 * 如果在这里面写return，那么try和catch里面的结果都会被改变
+			 */
+			//	return x;		
+			}								
+		}
+	}
+
+	//try  catch的嵌套
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("请输入一个整数...");
+		while (true) {
+			String in = sc.nextLine();
+			try {
+				int num = Integer.parseInt(in);
+				System.out.println(Integer.toBinaryString(num));
+				break;
+			} catch (Exception e) {
+				try {
+					new BigInteger(in);
+					System.out.println("输入的整数过大，请输入一个小一点的整数：");
+				} catch (Exception e1) {
+					try {
+						new BigDecimal(in);
+						System.out.println("输入的是小数，请重新输入一个整数：");
+					} catch (Exception e2) {
+						System.out.println("请不要输入字符");
+					}
+				}
+			}
+			
+		}
+	}
+	```
+
+* File
+	* File更应该叫做一个文件路径或目录（文件夹）路径
+		* 路径
+			* 绝对路径：从盘符开始，是一个固定的路径
+			* 相对路径：相对于某个位置，在Eclipse下是指当前项目下，在DOS下是指当前路径
+	* 构造方法：
+		* File(String pathname)  根据一个路径得到File对象
+		* File(String parent , String chile)  根据一个目录和一个子文件或目录得到File
+		* File(File parent , String child)  根据一个父File对象和一个子文件或目录得到File对象
+	* 创建功能————创建文件或文件夹时，如果不写盘符默认创建在项目路径下
+		* public boolean createNewFile()   创建文件，如果存在这样的文件则不创建
+		* public boolean mkdir()  创建文件夹（目录），如果存在这样的文件夹则不创建
+		* public boolwan mkdirs()   创建文件夹，如果父文件夹不存在，则帮你创建
+	* 重命名和删除功能
+		* public boolean renameTo(File dest)   把文件重命名为指定的文件路径
+			* 如果路径名相同，就是改名
+			* 如果路径名不同，就是改名并剪切
+		* public boolean delete()   删除文件或文件夹
+			* java中的删除不走回收站
+			* 要删除一个文件夹，要注意该文件夹内不能包含文件或文件夹（即只能删除空的文件夹）
+	* 判断功能
+		* public boolean isDirectory() 	判断是否是目录
+		* public loolean isFile() 	判断是否是文件
+		* public boolean exists() 	判断是否存在   
+		* public boolean canRead() 	判断是否可读
+		* public boolean canWrite() 	判断是否可写
+		* public boolean isHidden() 	判断是否隐藏
+	* 获取功能
+		* public String getAbsolutePath() 	获取绝对路径
+		* public String getPath() 	获取在构造方法中传入的路径（传相对返相对，传绝对返绝对）
+		* public String getName() 	获取名称
+		* public long length() 		获取长度（字节数）	
+		* public long lastModified() 获取最后一次的修改时间（毫秒值）
+		* public String[ ] list() 	获取指定目录下的所有文件或文件夹的名称数组
+		* public File[ ] listFiles() 获取指定们目录下的所有问价或文件夹的File数组
+		* public 
+
+	```java
+ 	//将	路径+文件名	或	 路径+文件夹名		封装成File对象
+	File f3 = new File("balabala.txt");		//相对路径
+	File f1 = new File("G:\\sublime workspace\\java笔记.md");		//绝对路径
+	System.out.println(f1.exists());
+
+
+	
+	//将父路径封装成File对象后能条用更多的操作
+	String parent = "G:\\sublime workspace\\html-trial";
+	String child1 = "eye.jpg";
+	File file = new File(parent, child1);
+
+	File file = new File("G:\\sublime workspace\\html-trial");
+	String child = "eye.jpg";
+	File f = new File(file,child);
+
+	//创建单级文件夹
+	File dir1 = new File("aaa");
+	System.out.println(dir1.mkdir());
+
+	//创建多级目录
+	File ddir1 = new File("a\\b");
+
+	File f1 = new File("G:\\Sublime Workspace\\html-trial"); 
+	String[] arr = f1.list();		//只是文件名
+	for (String string : arr) {
+		System.out.println(string);
+	}
+	System.out.println("------------------");
+	File[] farr = f1.listFiles();	//获取的是File对象数组
+	for (File file : farr) {
+		System.out.println(file);	//打印出来的是绝对路径
+	}
+
+	File yuan = new File("yuan.txt");
+	System.out.println(yuan.length()); 	//返回文件大小（多少字节）
+	long time = yuan.lastModified();	//文件的最后修改时间
+	System.out.println(time);
+	//根据毫秒值显示时间，用Date
+	Date d = new Date(time);
+	SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日  HH:mm:ss");
+	System.out.println(sdf.format(d));
+
+
+	//使用过滤器
+	Public static void main(String[] args) {
+		File dir2 = new File("E:\\");
+								//匿名内部类，实现接口
+		String[] filename = dir2.list(new FilenameFilter() {
+			@Override
+			/*
+			 * list底层把dir2传入dir 
+			 */
+			public boolean accept(File dir, String name) {
+				File file = new File(dir, name);
+				return file.isFile() && file.getName().endsWith("jpg");
+			}
+		});
+		for (String string : filename) {
+			System.out.println(string );
+		}
+	}
+	```
+
+##IO流
+* 概念
+	* IO流————处理设别之间的数据传输
+	* Java对数据的操作是通过流的方式
+	* Java用于操作流的类都在IO包中
+	* 流的分类
+		* 按流向分
+			* 输入流、输出流
+		* 按操作类型分
+			* 字节流 ：字节流可以操作任何数据（计算机中任何数据都是以字节的形式存储的
+			* 字符流 ：字符流只能操作纯字符数据，比较方便
+	* IO流常用父类
+
+		|字节流的抽象父类|字符流的抽象父类|
+		|----------------|:--------------:|
+		|InputStream	 |Reader		  |
+		|OutputStream	 |Writer		  |
+
+	* IO程序书写
+		* 使用前，导包
+		* 使用时，进行异常处理
+		* 使用后，释放资源
+* FileInputStream
+	* read() 读取的是一个字节，为什么返回的是int，而不是byte
+		* 因为字节输入流可以操作任意类型的文件，例如图片音频等，这些文件底层都是以二进制形式存储的，如果每次读取都返回byte，有可能在读到中间的时候遇到11111111（8个1），那么这11111111（8个1）是byte类型的-1，程序一旦遇到-1 就停止不读了，后面的数据就读不到了，所以在读取的时候用int 类型接受（把每一个byte型的高位用0补充），如果遇到11111111（8个1），会在其前面不上24个0凑足4个字节，那么byte类型的-1就变成int类型的255了，这样可以保证整个数据读完，而结束表标记的-1就是int型的
+* FileOutputStream
+	 * 在创建对象时，如果没有则自动创建，如果有，则先将这个文件清空.如果想在已有文件中续写，则在第二个参数处写true
+	```java
+	 如果out已存在，则先将其清空，再写入新数据
+	FileOutputStream out = new FileOutputStream("Java.txt");
+		//往里面写数据
+	out.write(97);	//虽然写出的是int，但到文件上就是一个字节，会自动去掉前面的24个0
+	
+							   //想续写，则在第二个参数处写true
+	FileOutputStream out = new FileOutputStream("java.txt",true);
+		out.write(99);
+	```
+
+	```java
+	==========================copy====================================
+	方法1.一次一个字节
+	缺点：效率低
+	public static void copy() throws FileNotFoundException, IOException {
+		//创建输入流对象，关联源文件
+		FileInputStream in = new FileInputStream("yard.jpg");
+		//创建输出流对象，关联目标文件
+		FileOutputStream out = new FileOutputStream("copy_yard.jpg");
+		int commute;
+		while ((commute = in.read()) != -1) {	//不断的读取每一个字节
+			out.write(commute);			//不断的写每一个字节
+		}
+		//释放资源
+		in.close();
+		out.close();
+	}
+
+	方法2.现将源文件全部放入byte[] 中，然后在将byte[] 中的内容全部放入目标文件中
+	缺点：有可能内存溢出
+	public static void demo2() throws FileNotFoundException, IOException {
+		FileInputStream in = new FileInputStream("yard.jpg");
+		FileOutputStream out = new FileOutputStream("copy_yard.jpg");
+		byte[] arr = new byte[in.available()];	//创建与文件大小一样的
+		in.read(arr);							//将文件上的字节全部读到内存里
+		out.write(arr);							//将字节数组中的字节数据写到文件中
+		in.close();
+		out.close();
+	}
+
+	方法3.定义一个小数组（相当于定义一个缓存）===========推荐使用============
+	public static void main(String[] args) throws IOException {
+		FileInputStream in = new FileInputStream("yard.jpg");
+		FileOutputStream out = new FileOutputStream("copy_yard.jpg");
+		int length;
+		//相当于定义一个Cache
+		//数组长度通常为1024 的整数倍
+		byte[] arr = new byte[1024 * 10];
+		//如果在in.read()中忘记加arr，返回到就不读取的字节个数，而是字节的码表值
+		while((length = in.read(arr)) != -1) {		
+			out.write(arr,0,length);
+		}
+		in.close();
+		out.close();
+	}
+
+	方法4.使用缓冲区对象   ===========推荐使用============
+	public static void demo1() throws FileNotFoundException, IOException {
+		//创建输入流对象
+		FileInputStream in = new FileInputStream("yard.jpg");
+		//创建输出流对象
+		FileOutputStream out = new FileOutputStream("copy_yard.jpg");
+		//包装
+		//创建缓冲区对象，对输入流进行包装使其变得更加强大
+		BufferedInputStream bin = new BufferedInputStream(in);
+		//创建缓冲区对象，对的输出流进行包装使其变得更加强大
+		BufferedOutputStream bout = new BufferedOutputStream(out);
+		int commute;
+		/*
+		 * 原理：从硬盘一次性取出8kB的内容放入内存的输入流缓冲区，
+		 * 然后一次一个字节的往同样在内存的输出流缓冲区传送，
+		 * 当全部传完后，输出流缓冲区一次性将全部内容写到硬盘，
+		 * 然后循环这个过程
+		 */
+		while((commute = bin.read()) != -1) {
+			bout.write(commute);
+		}
+		//关闭资源
+		bin.close();
+		bout.close();
+	}
+	```
+
+	|** 		|flush()  和close() 的区别						|
+	|-----------|:---------------------------------------------:|
+	|flush()	|用来刷新缓冲区。刷洗后可以继续写				|
+	|close()	|用来关闭流释放资源。如果是带缓冲区的流对象的close(),在关闭流之前会刷新缓冲区，关闭后不能再写|
+
+
+	```java
+	//字节流写字符串
+	FileOutputStream out = new FileOutputStream("a.txt");
+	out.write("hello world 你好世界".getBytes());
+	//输入回车换行
+	out.write("\r\n".getBytes());
+
+	```
+
+	```java
+		//JDK 6   IO流的标准异常处理
+		public static void main(String[] args) throws IOException {
+		FileInputStream in = null;
+		FileOutputStream out = null;
+		try {
+			in = new FileInputStream("yard.jpg");
+			out = new FileOutputStream("copy_yard.jpg");
+			int b;
+			while((b = in.read()) != -1) {
+				out.write(b);
+			} 			
+		} finally {
+			//try finally 嵌套的目的：能关一个就关一个
+			try {
+				if (in != null)
+					in.close();
+			} finally {
+				if (out != null)
+					out.close();
+			}
+		}
+	}
+
+
+	// JDK 1.7 IO流标准异常处理
+	public static void main(String[] args) throws IOException {
+		try (
+			FileInputStream in = new FileInputStream("yard.jpg");
+			FileOutputStream out = new FileOutputStream("copy_yard.jpg");
+		){
+			//执行完次花括号里的代码后，会自动调用上面小括号中流对象的close()进行关闭
+			int b;
+			while ((b = in.read()) != -1) {
+				out.write(b);
+			}
+			System.out.println("先执行");
+		}
+	}
+
+	public static void main(String[] args) throws IOException {
+		//图片简单加密
+		BufferedInputStream in = new BufferedInputStream(new FileInputStream("copy_yard.jpg"));
+		BufferedOutputStream out = new BufferedOutputStream(new FileOutputStream("jiemi_yard.jpg"));
+		int b;
+		while ((b = in.read()) != -1) {
+			//将写出的字节异或一个数，这个数就是秘钥，解密时再次异或就可以了
+			out.write(b ^ 90);
+		}
+		in.close();
+		out.close();
+	}
+	```
+* FileReader
+	
+	```java
+	=====================复制字符文件==========================
+	方法1.
+	public static void main(String[] args) throws IOException {
+		FileReader fr = new FileReader("xxx.txt");
+		FileWriter fw = new FileWriter("zzz.txt");
+		int b;
+		while ((b = fr.read()) != -1) {
+			fw.write(b);
+		}
+		fr.close();
+		//Writer 类中有一个2K的缓冲区，如果不关闭，那么最后一的内容将停留在缓冲区中
+		//若关流，则会将缓冲区中的内容刷新到硬盘中，最后关闭流。
+		fw.close();
+	}
+
+	方法2.自定义一个小数组
+	public static void main(String[] args) throws IOException {
+		//自定义数组缓冲区
+		FileReader fr = new FileReader("xxx.txt");
+		FileWriter fw = new FileWriter("zzz.txt");
+		char[] arr = new char[1024 * 2];
+		int length ;
+		//将文件中的数据读取到char数组中
+		while ((length = fr.read(arr)) != -1) {
+			//将char数组中的数据写到文件上
+			fw.write(arr,0,length);
+		}
+		fr.close();
+		fw.close();
+	}
+
+	方法3.带缓冲区的字符流
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new FileReader("xxx.txt"));
+		BufferedWriter bw = new BufferedWriter(new FileWriter("zzz.txt"));
+		int c;
+		while ((c = br.read()) != -1) {
+			bw.write(c);
+		}
+		br.close();
+		bw.close();
+		System.out.println("end");
+	}
+
+
+		public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new FileReader("xxx.txt"));
+		BufferedWriter bw = new BufferedWriter(new FileWriter("zzz.txt"));
+		String in;
+		//readline() 一次读取一行，返回的String 中没有换行符，需要手动换行
+		while((in = br.readLine()) != null) {
+			bw.write(in);
+			/*
+			 * newLine() 和 "\r\n"的区别
+			 * newLIne() 是跨平台的方法
+			 * "\r\n"只适用于Windows
+			 */
+			bw.newLine();		//换行
+		  //bw.write("\r\n");   //换行 
+		}
+		br.close();
+		bw.close();
+
+
+	public static void main(String[] args) throws IOException {
+		LineNumberReader lnr = new LineNumberReader(new FileReader("xxx.txt"));
+		String tem;
+		lnr.setLineNumber(100);
+		//readLine()中有一句LineNumber++;
+		//即没执行一次readLine() 行号加1，所以当设置行号为100是，显示的起始值为101
+		while ((tem = lnr.readLine()) != null) {
+			System.out.println(lnr.getLineNumber() + "  " + tem);
+		}
+		lnr.close();
+	}
+	```
+* 装饰设计模式的有点：
+	* 耦合性不强，被装饰的类的变化与装饰类的变化无关
+	* 3个步骤
+		* 1.获取被装饰类的引用
+		* 2.在构造方法中传入被装饰类的对象
+		* 3.对原有功能进行升级
+	```java
+	public class Demo6_Wrap {
+
+		public static void main(String[] args) {
+			EnhancedStudent ens = new EnhancedStudent(new Student());
+			ens.code();
+		}
+
+	}
+
+
+	//共同实现的接口
+	interface Coder {
+		public void code();
+	}
+
+	class Student implements Coder {
+		@Override
+		public void code() {
+			System.out.println("javaSE");
+			System.out.println("javaWeb");
+		}
+	}
+
+	class EnhancedStudent implements Coder {
+		//1.获取被装饰类的引用
+		private Student s;
+		//2.在构造方法中传入被装饰类的对象
+		public EnhancedStudent(Student s) {
+			this.s = s;
+		}
+		//3.对原有的功能进行升级
+		@Override
+		public void code() {
+			s.code();
+			System.out.println("database");
+			System.out.println("SSH");
+			System.out.println("bigDate");
+			System.out.println("...");
+		}
+		
+	}
+	```
+* 指定码表读写字符
+	* InputStreamReader————指定码表读字符
+	* OutputStreamWriter————指定码表写字符
+
+	```java
+	public static void main(String[] args) throws IOException {
+		//指定码表读字符
+		InputStreamReader isr = new InputStreamReader(new FileInputStream("utf-8.txt"),"utf-8");
+		//指定码表写字符
+		OutputStreamWriter osw = new OutputStreamWriter(new FileOutputStream("gbk.txt"),"gbk");
+		int c ;
+		while ((c = isr.read()) != -1) {
+			osw.write(c);
+		}
+		isr.close();
+		osw.close();
+	}
+	
+	
+	//把字符流包装
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = 		//更高效的写
+				new BufferedReader(new InputStreamReader(new FileInputStream("utf-8.txt"), "utf-8"));
+		BufferedWriter bw = 		//更高效的读
+				new BufferedWriter(new OutputStreamWriter(new FileOutputStream("gbk.txt"),"gbk"));
+		int b;
+		while ((b = br.read()) != -1) {
+			bw.write(b);
+		}
+		br.close();
+		bw.close();
+		System.out.println("end");
+	}
+
+	//软件限次
+	public static void main(String[] args) throws IOException {
+		//使用BufferedReader是为了使用期readline()读取一整行，从而保持数据的原样性
+		BufferedReader br = new BufferedReader(new FileReader("record.txt"));
+		String c = br.readLine();	//读取整行
+		br.close();
+		int num = Integer.parseInt(c);		//String ---> int 
+		if (num > 0) {
+			System.out.println("欢迎使用本软件，您还有" + num-- + "次机会");
+			//new FileWriter时，因为recort.txt已经存在，
+			//所以会先将其清空，再写内容，
+			//所以不能在BufferedReader将数据读取到之前new
+			FileWriter fw = new FileWriter("record.txt");
+			fw.write(num + "");
+			/*
+			 * 如果没有关闭输出流，那么将导致无法将数据写会去
+			 * FileWriter内部有一个小的缓冲区，在执行close()时，
+			 * 会先将缓冲区中的数据刷回硬盘然后关闭流 
+			 */
+			fw.close();
+		} else {
+			System.out.println("请购买正版软件");
+		} 
+		System.out.println("end");
+		
+		
+	}
+
+	```
+* 递归
+	* 有点：不用知道循环次数
+	* 弊端：不能调用次数过多，容易导致占内存溢出
+	* 构造方法不能使用递归调用
+	* 递归方法不一定要有返回值
+* SequenceInputStream
+	* 将多个输入流整合为一个流
+	```java
+	//将2个输入流整合为一个流
+	FileInputStream fis1 = new FileInputStream("a.txt");
+	FileInputStream fis2 = new FileInputStream("b.txt");
+	SequenceInputStream sis = new SequenceInputStream(fis1, fis2);
+
+	public static void main(String[] args) throws IOException {
+		// 将多个流整合成一个流
+		FileInputStream fis1 = new FileInputStream("a.txt");
+		FileInputStream fis2 = new FileInputStream("b.txt");
+		FileInputStream fis3 = new FileInputStream("c.txt");
+		//床架集合
+		Vector<FileInputStream> v = new Vector<>();
+		//将流对象存入集合
+		v.add(fis1);
+		v.add(fis2);
+		v.add(fis3);
+		Enumeration<FileInputStream> en = v.elements();
+		//将枚举中的输入流整合成一个
+		SequenceInputStream sis = new SequenceInputStream(en);
+		FileOutputStream fos = new FileOutputStream("d.txt");
+		int b;
+		while ((b = sis.read()) != -1) {
+			fos.write(b);
+		}
+		sis.close();
+		fos.close();
+		System.out.println("end");
+	}
+	```
+
+* 内存输出流————ByteArrayOutputStream
+	* 内存输出流可以向内存中写数据，把内存当做一个缓冲区，写出之后可以一次性获取所有数据
+
+	```java
+	public static void main(String[] args) throws IOException {
+		//创建输入流
+		FileInputStream fis = new FileInputStream("a.txt");
+		//创建内存输入流
+		//在内存中创建可以增长的内存数组。因为是放入内存所以是空参的构造
+		ByteArrayOutputStream baos = new ByteArrayOutputStream();
+		//将输入流的数据存入内存的缓冲区
+		int b;
+		while ((b = fis.read()) != - 1) {		//将读取到的数据逐个写到内存数组中
+			baos.write(b);
+		}
+		fis.close(); 
+		
+		//一次性获取内存数组中的所有数据
+	/*	//当涉及到码表转换的时候使用该方式，即在转换时可以自己指定码表
+	 * byte[] arr = baos.toByteArray();
+		String line = new String(arr);*/
+		
+		//使用平台默认的码表，将缓冲区的内容转换为字符串
+		String str = baos.toString();
+		//也可以省略toString(),因为打印对象时，会自动调用该对象的toString()
+		
+		
+		System.out.println(str);
+	}
+	```
+
+* FileInputStream 读取中文的时候出现了乱码的解决方案
+	* 字符流读取
+	* ByteArrayOutputStream
+
+	```java
+	public static void main(String[] args) throws IOException {
+		FileInputStream fis = new FileInputStream("a.txt");
+		ByteArrayOutputStream baso = new ByteArrayOutputStream();
+		byte[] arr = new byte[5];
+		int len;
+		while ((len = fis.read(arr)) != -1) {
+			baso.write(arr,0,len);
+		}
+		fis.close();
+		System.out.println(baso.toString());
+	}
+	```
+
+* ObjectOutputStream 
+	* 对象输出流。序列化：将对象写到文加上
+		* 必须实现Serializable接口才能实现序列化
+	* 写到文件中的数据不一定要看懂，只要能反序列化就行
+* ObjectInputStream
+	* 对象输入流。反序列化
+
+	```java
+	public static void writeToArrayList() throws IOException, FileNotFoundException {
+		Person p1 = new Person("tony",23);
+		Person p2 = new Person("jery",24);
+		Person p3 = new Person("harry",12);
+		Person p4 = new Person("port",34);
+		将多个对象放入集合
+		ArrayList<Person> list = new ArrayList<>();
+		list.add(p1);
+		list.add(p2);
+		list.add(p3);
+		list.add(p4);
+		//开始序列化
+		ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("d.txt"));
+		//将整个集合一次写出
+		oos.writeObject(list);
+		//序列化结束
+		oos.close();
+		
+		//开始反序列化
+		ObjectInputStream ois = new ObjectInputStream(new FileInputStream("d.txt"));
+		//将整个集合一次性读出
+		ArrayList<Person> list = (ArrayList<Person>)ois.readObject();
+		//遍历集合的得到每个对象
+		for (Person p : list) {
+			System.out.println(p);
+		}
+		//反序列化结束
+	}
+	```
+
+* PrintStream   打印字节流
+	* 可以很方便的将对象的toString()结果输出，并且自动加上换行，而且可以使用自动刷出的模式
+	* System.out 就是一个PrintStream,其默认向控制台输出信息
+	* 只操作数据目的
+* PrintWriter	打印字符流
+	* 只操作数据目的
+
+	```java
+		PrintStream ps = System.out;	//获取标准输出流
+		ps.println(98);		//底层通过Integer.toString()将其转为String并打印
+		ps.write(98);			//查码表后进行翻译再打印
+		
+		Person p = new Person("hello",23);
+		ps.println(p);		//默认调用对象的toString() 
+		Person p2 = null;
+		ps.println(p2);	//打印引用数据类型时，如果是null，则打印null，如果不是null，则调用对象的toString()
+		ps.close();
+
+		PrintWriter pw = new PrintWriter(new FileOutputStream("b.txt"),true);
+		pw.print(98);
+		pw.println(97);		//自动刷出功能只针对println(...)
+		pw.write(97);
+		pw.close();
+	```
+* 标准输入输出流
+	* System.in 是InputStream，标准输入流，默认可以从键盘输入读取字节数据
+	* System.out 是PrintStream，标准输出流，默认可以向Console中输出字符和字节数据
+
+
+	```java
+		InputStream is = System.in;
+		int x = is.read();
+		System.out.println(x);
+		is.close();						//此处的流不用关，因为没有和哪个文件进行关联。
+		InputStream is2 = System.in;		//这个输入流只有一个，即使新创建也和之前那个是同一个
+		int q = is2.read();
+		System.out.println(q);
+
+
+	```
+
+//改变流
+	System.setIn(new FileInputStream("a.txt"));		//改变标准输入流
+	System.setOut(new PrintStream("b.txt"));		//改变标准输出流
+	//获取流
+	InputStream is = System.in;			//获取标准输入流，默认指向键盘，改变后指向文件
+	PrintStream ps = System.out;		//获取标准输出流，默认指向控制台，改变后指向文件
+	//开始复制
+	int b;
+	while ((b = is.read()) != -1) {
+		ps.write(b);
+	}
+	```
+
+* 2中方式实现键盘录入
+	```java
+	//System.in为字节流，InputStreamReader为转换流，BufferedReader为字符流
+	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	String line = br.readLine();		//读取一整行
+	System.out.println(line);
+	br.close();
+	
+	Scanner sc = new Scanner(System.in);
+	String str = sc.nextLine();			//读取一整行
+	System.out.println(str);
+	```
+
+* 数据输入输出流
+
+	```java
+	FileOutputStream fos = new FileOutputStream("b.txt");
+	fos.write(997);
+	fos.write(998);
+	fos.write(999);
+	fos.close();
+		997			1111100101
+		因为write一次写一个字节，所以写进去的是后8位，前面的都被砍去，
+		即写入的是11100101，转成十进制为229，
+	FileInputStream fis = new FileInputStream("b.txt");
+	System.out.println(fis.read());		//229
+	System.out.println(fis.read());		//230
+	System.out.println(fis.read());		//231
+	
+
+	DataOutputStream dos = new DataOutputStream(new FileOutputStream("b.txt"));
+	dos.writeInt(997);
+	dos.writeInt(998);
+	dos.writeInt(999);
+	//写出后的文件看不懂，但能读出即可
+	dos.close();
+
+	DataInputStream dis = new DataInputStream(new FileInputStream("b.txt"));
+	System.out.println(dis.readInt());
+	System.out.println(dis.readInt());
+	System.out.println(dis.readInt());
+	dis.close();
+
+	```
+* Properties
+	* Properties 类表示了一个持久的属性集
+	* Properties 可保存在流中或从流中加载
+	* 属性列表中每个键及其对应值都是一个字符串
+	* 是一个双列集合但没有泛型
+
+```java
+
+	public class 将一个文件夹（及其内容）复制到另一个文件夹中 {
+		public static void main(String[] args) throws IOException {
+			System.out.println("请输入1个文件夹路径");
+			File src = getDir();
+			System.out.println("请输入1个文件夹路径");
+			File dest = getDir();
+			if (src.equals(dest)) {		//防止无限循环创建
+				System.out.println("2个路径不能相同，请重新输入");
+			} else {
+				copy(src,dest);
+			}
+			System.out.println("end");
+		}
+		
+		private static File getDir() {
+			Scanner sc = new Scanner(System.in);
+			while (true) {
+				String line = sc.nextLine();
+				File file = new File(line);
+				if (!file.exists()) {
+					System.out.println("您输入的路径不存在，请重新输入");
+				} else if (file.isFile()) {
+					System.out.println("您输入的是文件路径，请输入文件夹路径");
+				} else {
+					return file;
+				}
+			}
+		}
+		
+		private static void copy(File src,File dest) throws IOException {
+			File root = new File(dest,src.getName());		//创建新路径
+			root.mkdir();		//创建新文件夹 
+			File[] arr = src.listFiles();
+			for (File file : arr) {
+				if (file.isFile()) {
+					//复制的时候只能用字节流。因为字符流只能复制文本
+					BufferedInputStream bis = new BufferedInputStream(new FileInputStream(file));
+					//用File对象给出新的路径																	
+					BufferedOutputStream bos =
+							new BufferedOutputStream(new FileOutputStream(new File(root,file.getName())));
+					int b;
+					while ((b = bis.read()) != -1) {
+						bos.write(b);
+					}
+					bis.close();
+					bos.close();
+				} else {
+					copy(file, root);
+				}
+			}
+		}
+	}
+
+
+	public class 层级打印文件夹中的所有文件 {
+	public static void main(String[] args) {
+			System.out.println("请输入一个文件夹路径");
+			File file = getDir();
+			print(file,0);
+			System.out.println("end");
+		}
+		
+		private static File getDir() {
+			Scanner sc = new Scanner(System.in);
+			File file = new File(sc.nextLine());
+			while (true) {
+				if (!file.exists()) {
+					System.out.println("您输入的路径不存在，请重新输入");
+				} else if (file.isFile()) {
+					System.out.println("您输入的是文件路径，请输入文件夹路径");
+				} else {
+					return file;
+				}
+			}
+		}
+		
+		private static void print(File file,int lev) {
+			File[] arr = file.listFiles();
+			for (File f : arr) {
+				for (int i = 0 ; i < lev ; i++) {
+					System.out.print("\t");
+				}
+				System.out.println(f.getName());
+				if (f.isDirectory()){
+					print(f,lev + 1);
+				}
+			}
+		}
+	}
+
+
+```
+
+##线程
+* Java程序运行原理
+	* java命令会启动JVM，等于穷的了一个应用程序，也就是启动了一个进程，该进程会自动启动一个“主线程”，然后主线程去调用某个类的main()
+* JVM是多线程的。因为JVM启动至少启动了垃圾回收线程和主线程
+
+	```java
+	//开启线程的第一种方法
+	public class Demo1_Thread {
+
+		public static void main(String[] args) {
+			My my = new My();		//4.创建Thread的子类对象
+			my.start();				//5.调用strar()开启线程
+			for( int i = 0 ; i < 10000 ;i++) {
+				System.out.println("main()....");
+			}
+		}
+
+	}
+
+	class My extends Thread {		//1.继承Thread
+		public void run(){			//2.重写run()
+			for (int i = 0 ; i < 10000 ; i++){		//3.将要执行的代码卸载run()中
+				System.out.println("class My ...");
+			}
+		}
+	}
+
+	//开启线程的第二种方法
+	public class Demo2_Thread {
+		public static void main(String[] args) {
+			MyThread m = new MyThread();		//4.创建Runnable的子类对象
+			Thread t = new Thread(m);			//5.将其当做参数传入Thread的构造函数
+			t.start();							//6.开启线程
+			for (int i = 0 ; i < 10000 ; i++) {
+				System.out.println("main()....");
+			}
+		}
+
+	}
+
+	class MyThread implements Runnable {		//1.定义一个类实现Runnable接口
+		@Override
+		public void run() {						//2.重写run()
+			for (int i = 0 ; i < 10000 ; i++) { //3.将要执行的代码卸载run()中
+				System.out.println("MyThread....");
+			}
+		}
+		
+	}
+
+ 
+	public static void main(String[] args) {
+		//1.匿名内部类继承Thread
+		new Thread() {		//1.继承Thread
+			public void run() {		//2.重写run()
+				for (int i = 0 ; i < 1000 ; i++) {		//3.将要执行的代码写在run()中
+					System.out.println("匿名内部类");
+				}
+			}
+		}.start();		//4.开启线程
+		
+		//2.匿名内部类实现接口
+		new Thread(new Runnable() {		//1.将Runnable的匿名对象传给Thread的构造函数
+			public void run() {			//2.重写run()
+				for(int i = 0 ; i < 1000; i++) {		//3.将要执行的代码写在run()中
+					System.out.println("实现接口");
+				}
+			}
+		}).start();		//4.开启线程
+	}
+	```
+
+	
+	|**			|两种方式的区别(查看源码的区别)															|
+	|-----------|:---------------------------------------------------------------------:|
+	|继承Thread	|由于子类重写了Thread 类的run(),当调用start()时，JVM直接找子类的run()方法  |
+	|实现Runnable接口|构造函数中传入了Runnable的引用，成员变量记住了它，start()调用run()方法时内部判断成员变量Runnable的引用是否为null，不为null时，编译时看的是Runnable的run()，运行时执行的是子类的run()方法|
+
+	|**				|优点										|缺点										|
+	|---------------|:-----------------------------------------:|:-----------------------------------------:|
+	|继承Thread		|可以直接使用Thread类中的方法。**代码简单**		|如果已经有了父类，则不能使用该方法			|
+	|实现Runnable接口|即使有父类也没关系。**扩展性好**				|不能直接使用Thread中的方法，需要先获取到线程对象后，才能得到Thread的方法，代码复杂|
+
+* 线程的名字
+	* String getName()
+	* void setName(String)
+* 获取当前线程对象，主线程也可以获取
+	* 静态方法,直接类名 . 调用     
+		* Thread.currentThread()
+* 休眠线程
+	* 静态方法   Thread.sleep(毫秒)
+	* 控制当前线程休眠若干毫秒
+* 守护线程
+	* setDaemon(boolean b)
+	* 设置一个线程为守护线程，该线程不会单独执行，当其他非守护线程都执行结束后，自动退出。不是立即退出，有一个时间缓冲
+* 礼让线程（让出CPU）
+	* 静态方法  Thread.yield
+* 设置优先级
+	* setPriority(int i)
+	* 共10个等级，1~10,1最小，10最大。
+	* 1--->Thread.MIN_PRIORITY
+	* 10--->Thread.MAX_PRIORITY
+* 同步
+	* 当多个线程并发，有多段代码同时执行时，我们希望某一段代码执行的过程中CPU不要切换到其他线程工作，这时就需要同步
+	* 如果两段代码是同步的，那么同一时间只能至此那个一段，在一段代码没执行结束之前，不会执行另外一段代码
+* 同步代码块
+	* 使用synchronized关键字加上一个锁对象（任意对象都可作为锁对象）来定义一段代码，这就叫同步代码块
+	* 多个同步代码块如果使用相同的锁对象，那么他们就是同步的
+* 非静态的同步方法的锁对象是————**this**
+* 静态的同步方法的锁对象是————**字节码对象，即：  类名.class**
+
+
+	```java
+	public class Demo2_Synchronized {
+		public static void main(String[] args) {
+			final Printer2 p = new Printer2();
+			new Thread() {
+				public void run() {
+					// 匿名内部类使用方法内的局部变量必须用final修饰
+					while (true) {
+						p.print1();
+					}
+				}
+			}.start();
+			new Thread() {
+				public void run() {
+					while (true) {
+						p.print2();
+					}
+				}
+			}.start();
+		}
+	}
+	/*
+	 * 非静态的同步方法锁是————this
+	 * 静态的同步方法锁是————字节码文件,即： 类名.class
+	 */
+	class Printer2 {
+	//	public synchronized void print1() {		//非静态同步方法————this
+		public static synchronized void print1() {		|		//静态同步方法————Printer2.class
+			System.out.print("中");                     |           |        
+			System.out.print("央");                     |           |       
+			System.out.print("电");                     |           |                         
+			System.out.print("播");                     |           |             
+			System.out.print("台");                     |           |                     
+			System.out.println();                       |           |                     
+		}                                               |           |                 
+                                                        |           |                    
+		public void print2() {                          |           |            
+	//		synchronized (this) {     <-----------------╯          |                       
+			synchronized (Printer2.class) {        <----------------╯             
+				System.out.print("湖");
+				System.out.print("南");
+				System.out.print("卫");
+				System.out.print("视");
+				System.out.println();
+			}
+		}
+	}
+	```
