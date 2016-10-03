@@ -20,7 +20,7 @@ public class Vehicle {
         try {
             System.out.println("wonderful! you get a " + carBound(type));
         } catch (Exception e) {
-            System.out.println(e.getMessage() + ",ÔÙÑ¡Ò»´Î");
+            System.out.println(e.getMessage() + ",å†é€‰ä¸€æ¬¡");
             buyCar();
         }
 
@@ -42,7 +42,7 @@ public class Vehicle {
                 bound = "Koenigsegg";
                 break;
             default :
-                throw new CarBoundException("Ö»ÄÜÑ¡ 1 ¡ª¡ª 4");
+                throw new CarBoundException("åªèƒ½é€‰ 1 â€”â€” 4");
         }
         return bound;
     }
