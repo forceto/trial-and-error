@@ -59,4 +59,4 @@
 
 ##原理
 
-**在 run 之前，先配置 configuration **
+**在 run 之前，先配置 configuration**
