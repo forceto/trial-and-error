@@ -9,6 +9,7 @@ public class RunSimpleThrows {
     public RunSimpleThrows() {
         SimpleThrows st = new SimpleThrows();
         try {
+
             st.throwsException();
         } catch (IOException e) {
             System.out.println("抛出 IO 异常");
