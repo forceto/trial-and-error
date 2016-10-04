@@ -11,7 +11,7 @@ public class RunSimpleThrows {
         try {
             st.throwsException();
         } catch (IOException e) {
-            System.out.println("�׳� IO �쳣");
+            System.out.println("抛出 IO 异常");
             e.printStackTrace();
         }
 
