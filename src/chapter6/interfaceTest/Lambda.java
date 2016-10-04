@@ -5,16 +5,14 @@ package chapter6.interfaceTest;
  */
 public class Lambda {
     public void eat(Eatable e) {
-        System.out.println(e);
         e.taste();
     }
 
     public void drive(Flyable f) {
-        System.out.println(f);
-        f.fly("Çç¿ÕÍòÀï");
+        f.fly("æ™´ç©ºä¸‡é‡Œ");
     }
 
     public void add(Addable a) {
-
+        System.out.println("5 + 3 = " + a.add(5,3));
     }
 }
