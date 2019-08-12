@@ -3,7 +3,7 @@ package chapter5;
 public class EnumTry {
 	public EnumTry(){
 		EnumTest e=new EnumTest(SeasonEnum.FALL);
-		//Enum µÄ values£¨£©·½·¨Îª±éÀúº¯Êı
+		//Enum çš„ valuesï¼ˆï¼‰æ–¹æ³•ä¸ºéå†å‡½æ•°
 		for(SeasonEnum s:SeasonEnum.values()){
 			new EnumTest(s);
 		}

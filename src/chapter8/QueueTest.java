@@ -12,7 +12,7 @@ public class QueueTest {
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private void priorityQueueTest(){
 		PriorityQueue pq=new PriorityQueue();
-		//ÔÚ¶ÓÎ²²åÈëÔªËØ
+		//åœ¨é˜Ÿå°¾æ’å…¥å…ƒç´ 
 		pq.offer(6);
 		pq.offer(-3);
 		pq.offer(20);
@@ -28,16 +28,16 @@ public class QueueTest {
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private void ArrayDequeStack(){
-		//°ÑË«¶Ë¶ÓÁÐarrayDequeµ±×öÕ»Ê¹ÓÃ
+		//æŠŠåŒç«¯é˜Ÿåˆ—arrayDequeå½“åšæ ˆä½¿ç”¨
 		ArrayDeque stack=new ArrayDeque();
-		//push Ñ¹Õ»
+		//push åŽ‹æ ˆ
 		stack.push("java");
 		stack.push("java EE");
 		stack.push("android");
-		//push½øÈ¥µÄ£¬Õ»¶¥Îª¶ÓÁÐÍ·
+		//pushè¿›åŽ»çš„ï¼Œæ ˆé¡¶ä¸ºé˜Ÿåˆ—å¤´
 		System.out.println("push--\t"+stack);
 		System.out.println("peek-->\t"+stack.peek());
-		//pop ³öÕ»
+		//pop å‡ºæ ˆ
 		System.out.println("pop-->\t"+stack.pop());
 		System.out.println(stack);
 		
@@ -48,10 +48,10 @@ public class QueueTest {
 		queue.offer("Java EE");
 		queue.offer("android");
 		System.out.println("offer-->\t"+queue);
-		//³ö¶Ó  peek Ö»È¡²»É¾
+		//å‡ºé˜Ÿ  peek åªå–ä¸åˆ 
 		System.out.println("peek-->\t"+queue.peek());
 		System.out.println(queue);
-		//³ö¶Ó  poll È¡ÍêÉ¾³ý
+		//å‡ºé˜Ÿ  poll å–å®Œåˆ é™¤
 		System.out.println("poll-->\t"+queue.poll());
 		System.out.println(queue);
 		
@@ -61,8 +61,8 @@ public class QueueTest {
 		a.push(3);
 		a.push(4);
 		a.push(5);
-		//push½øÈ¥µÄ£¬Õ»¶¥Îª¶ÓÁÐÍ·
-		//ÓÃpushÑ¹Õ»£¬°´ÕÕÕ»Àí½â
+		//pushè¿›åŽ»çš„ï¼Œæ ˆé¡¶ä¸ºé˜Ÿåˆ—å¤´
+		//ç”¨pushåŽ‹æ ˆï¼ŒæŒ‰ç…§æ ˆç†è§£
 		System.out.println("push-->\t"+a);
 		
 		ArrayDeque s=new ArrayDeque();
@@ -71,7 +71,7 @@ public class QueueTest {
 		s.offer(3);
 		s.offer(4);
 		s.offer(5);
-		//ÓÃofferÈë¶Ó£¬°´ÕÕ¶ÓÁÐÀí½â
+		//ç”¨offerå…¥é˜Ÿï¼ŒæŒ‰ç…§é˜Ÿåˆ—ç†è§£
 		System.out.println("offer-->\t"+s);
 	}
 }

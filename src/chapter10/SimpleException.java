@@ -11,18 +11,18 @@ public class SimpleException {
             int c = a / b;
             System.out.println("result :\t" + c);
         } catch (IndexOutOfBoundsException e) {
-            //Ë÷ÒıÔ½½ç
-            System.out.println("Ë÷ÒıÔ½½ç");
+            //ç´¢å¼•è¶Šç•Œ
+            System.out.println("ç´¢å¼•è¶Šç•Œ");
             System.out.println(e.getMessage());
             System.out.println(e.getStackTrace());
 
         } catch (NumberFormatException e) {
-            System.out.println("ÊäÈëµÄ²»ÊÇÕûÊıÊı×Ö");
+            System.out.println("è¾“å…¥çš„ä¸æ˜¯æ•´æ•°æ•°å­—");
         } catch (ArithmeticException e) {
-            // ·ÖÄ¸Îª0Ê±³öÏÖ
-            System.out.println("ËãÊıÒì³£");
+            // åˆ†æ¯ä¸º0æ—¶å‡ºç°
+            System.out.println("ç®—æ•°å¼‚å¸¸");
         } catch (Exception e) {
-            System.out.println("ÎŞ·¨²¶»ñµÄÒì³£");
+            System.out.println("æ— æ³•æ•è·çš„å¼‚å¸¸");
         }
     }
 }

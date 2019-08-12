@@ -2,17 +2,17 @@ package chapter5;
 
 public abstract class ShapeAbstract {
 	{
-		System.out.println("Ö´ĞĞShapeµÄ³õÊ¼»¯¿ì");
+		System.out.println("æ‰§è¡ŒShapeçš„åˆå§‹åŒ–å¿«");
 	}
 	private String color;
-	//ËãÖÜ³¤
+	//ç®—å‘¨é•¿
 	public abstract double calPerimeter();
-	//·µ»ØĞÎ×´
+	//è¿”å›å½¢çŠ¶
 	public abstract String getType();
 	//constructor
 	public ShapeAbstract(){}
 	public ShapeAbstract(String color){
-		System.out.println("Ö´ĞĞshapeµÄ¹¹Ôìº¯Êı...");
+		System.out.println("æ‰§è¡Œshapeçš„æ„é€ å‡½æ•°...");
 		this.color=color;
 	}
 }

@@ -1,8 +1,8 @@
 package chapter9;
 
 /*
- * 在定义类型时设定上限
- * 传入的参数T必须是Number或其子类
+ * 鍦ㄥ畾涔夌被鍨嬫椂璁惧畾涓婇檺
+ * 浼犲叆鐨勫弬鏁癟蹇呴』鏄疦umber鎴栧叾瀛愮被
  */
 public class AppleOfTypeParameter <T extends Number>{
 	T sum;

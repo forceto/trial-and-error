@@ -2,7 +2,7 @@ package chapter9;
 
 public class DiomandOfShape extends Shape{
 	public void draw(Canvas c) {
-		System.out.println("ÁâĞÎ");
+		System.out.println("è±å½¢");
 	}
 	
 	

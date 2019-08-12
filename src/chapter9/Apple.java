@@ -1,6 +1,6 @@
 package chapter9;
 
-//´ø·ºĞÍÉùÃ÷µÄÀà
+//å¸¦æ³›å‹å£°æ˜çš„ç±»
 public class Apple<T> {
 	private T info;
 	public Apple(T info){

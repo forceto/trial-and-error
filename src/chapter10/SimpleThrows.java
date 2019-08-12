@@ -10,9 +10,9 @@ import static javafx.scene.input.KeyCode.F;
  * Created by force_to on 2016/10/2.
  */
 public class SimpleThrows {
-    // µ±²»ÖªµÀÈçºÎ´¦Àíµ±Ç°µÄÒì³£Ê±
-    // ¾ÍÍ¨¹ıÔÚ·½·¨µÄÉùÃ÷ÖĞÔö¼Ó throws
-    // ÈÃ·½·¨µÄµ÷ÓÃÕß´¦ÀíÒì³£
+    // å½“ä¸çŸ¥é“å¦‚ä½•å¤„ç†å½“å‰çš„å¼‚å¸¸æ—¶
+    // å°±é€šè¿‡åœ¨æ–¹æ³•çš„å£°æ˜ä¸­å¢åŠ  throws
+    // è®©æ–¹æ³•çš„è°ƒç”¨è€…å¤„ç†å¼‚å¸¸
     public SimpleThrows() {
     }
 
@@ -24,14 +24,3 @@ public class SimpleThrows {
         FileInputStream fis = new FileInputStream("a.txt");
     }
 }
-
-
-
-
-
-
-
-
-
-
-

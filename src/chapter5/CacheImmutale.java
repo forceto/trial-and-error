@@ -1,10 +1,10 @@
 package chapter5;
-// ²»¿É±äÀà£¬»º´æ»úÖÆ
+// ä¸å¯å˜ç±»ï¼Œç¼“å­˜æœºåˆ¶
 public class CacheImmutale {
 	private static int MAX_SIZE=10;
-	//ÓÃÊı×é»º´æÒÑÓĞµÄÊµÀı
+	//ç”¨æ•°ç»„ç¼“å­˜å·²æœ‰çš„å®ä¾‹
 	private static CacheImmutale[] cache=new CacheImmutale[MAX_SIZE];
-	//¼ÇÂ¼Î»ÖÃ
+	//è®°å½•ä½ç½®
 	private static int pos=0;
 	private final String name;
 	//constructor
@@ -15,14 +15,14 @@ public class CacheImmutale {
 		return name;
 	}
 	public static CacheImmutale valueOf(String name){
-		//±éÀúÒÑ»º´æµÄÊµÀı
+		//éå†å·²ç¼“å­˜çš„å®ä¾‹
 		for(int i=0;i<MAX_SIZE;i++){
-			//ÈôÒÑ¾­ÓĞ£¬ÔòÊä³öÒÑÓĞµÄ
+			//è‹¥å·²ç»æœ‰ï¼Œåˆ™è¾“å‡ºå·²æœ‰çš„
 			if(cache[i]!=null && cache[i].getName().equals(name)){
 				return cache[i];
 			}
 		}
-		//Èô»º´æÒÑÂú,°´ÕÕÏÈ½øÏÈ³öÌæ»»
+		//è‹¥ç¼“å­˜å·²æ»¡,æŒ‰ç…§å…ˆè¿›å…ˆå‡ºæ›¿æ¢
 		if(pos==MAX_SIZE){
 			cache[0]=new CacheImmutale(name);
 			pos=1;

@@ -16,6 +16,6 @@ public class UseFever {
     }
 
     public static void throwFever() throws Exception{
-        throw new Fever("ÎÒ·¢ÉÕÁË...");
+        throw new Fever("æˆ‘å‘çƒ§äº†...");
     }
 }

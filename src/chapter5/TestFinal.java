@@ -13,7 +13,7 @@ public class TestFinal {
 		System.out.println(Arrays.toString(array));
 		Arrays.sort(array);
 		System.out.println(Arrays.toString(array));
-		//final 修饰的方法不能被重写
+		//final 淇グ鐨勬柟娉曚笉鑳借閲嶅啓
 		
 	}
 	

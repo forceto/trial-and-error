@@ -9,7 +9,7 @@ public class FirstThread extends Thread {
     @Override
     public void run() {
         for (; i < 100 ; i++) {
-            // 当线程类继承Thread时，可直接使用this获取当前线程
+            // 褰撶嚎绋嬬被缁ф壙Thread鏃讹紝鍙洿鎺ヤ娇鐢╰his鑾峰彇褰撳墠绾跨▼
             System.out.println(this.getName() + "\t" + i);
         }
     }

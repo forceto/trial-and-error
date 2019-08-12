@@ -8,7 +8,7 @@ public class TestContinueOuter {
 		{
 			for(int j=0;j<4;j++)
 			{
-				System.out.println("iµÄÖµÎª£º"+i+"\t"+"jµÄÖµÎª£º"+j);
+				System.out.println("içš„å€¼ä¸ºï¼š"+i+"\t"+"jçš„å€¼ä¸ºï¼š"+j);
 				if(j==1)
 					continue outer;
 			}

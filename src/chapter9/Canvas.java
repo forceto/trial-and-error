@@ -5,9 +5,9 @@ import java.util.Set;
 
 public class Canvas {
 	/*
-	 * ±»ÏŞÖÆµÄ·ºĞÍÍ¨Åä·û
+	 * è¢«é™åˆ¶çš„æ³›å‹é€šé…ç¬¦
 	 * List<? extends Shape>
-	 * Î´ÖªÀàĞÍÊÇShapeµÄ×ÓÀà
+	 * æœªçŸ¥ç±»å‹æ˜¯Shapeçš„å­ç±»
 	 */
 	public void drawAll(List<? extends Shape> shapes){
 		System.out.println("drallAll()....");
@@ -18,7 +18,7 @@ public class Canvas {
 	}
 	
 	public void drawDiomand(Set<? extends Shape> xingzhuang){ 
-		System.out.println("ÕıÔÚÖ´ĞĞdrawDiomand()...");
+		System.out.println("æ­£åœ¨æ‰§è¡ŒdrawDiomand()...");
 		for(Shape s:xingzhuang){
 			System.out.println(this.toString());
 		}

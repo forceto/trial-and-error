@@ -7,9 +7,9 @@ import java.io.*;
  */
 public class AutoTry {
     public AutoTry() throws IOException{
-        //  ÎªÁË±£Ö¤×ÊÔ´ÄÜ±»¹Ø±Õ£¬×ÊÔ´±ØĞëÊµÏÖ AutoCloseable ½Ó¿Ú»òCloseale½Ó¿Ú
+        //  ä¸ºäº†ä¿è¯èµ„æºèƒ½è¢«å…³é—­ï¼Œèµ„æºå¿…é¡»å®ç° AutoCloseable æ¥å£æˆ–Closealeæ¥å£
         try (
-                //  ÔÚ () ÖĞÉùÃ÷ÒªÊ¹ÓÃµÄ×ÊÔ´
+                //  åœ¨ () ä¸­å£°æ˜è¦ä½¿ç”¨çš„èµ„æº
                 BufferedReader br = new BufferedReader(new FileReader("SimpleException.jsva"));
                 PrintStream ps = new PrintStream(new FileOutputStream("a.txt"))
         ) {

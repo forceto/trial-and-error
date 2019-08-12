@@ -2,7 +2,7 @@ package chapter9;
 
 public class CircleOfShape extends Shape{
 	public void draw(Canvas c){
-		System.out.println("ÔÚ"+c+"ÉÏ»°Ò»¸öÔ°");
+		System.out.println("åœ¨"+c+"ä¸Šè¯ä¸€ä¸ªå›­");
 	}
 
 }

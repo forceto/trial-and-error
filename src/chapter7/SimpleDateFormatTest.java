@@ -8,12 +8,12 @@ public class SimpleDateFormatTest {
 
 	public SimpleDateFormatTest() throws ParseException {
 		Date d=new Date();
-		//创建SimpleDateFormat对象
-		SimpleDateFormat sdf1=new SimpleDateFormat("Gyyyy年中第天D");
-		//将d格式化为日期
+		//鍒涘缓SimpleDateFormat瀵硅薄
+		SimpleDateFormat sdf1=new SimpleDateFormat("Gyyyy骞翠腑绗ぉD");
+		//灏哾鏍煎紡鍖栦负鏃ユ湡
 		String datestr=sdf1.format(d);
 		System.out.println(datestr);
-		String str="14###三月##21";
+		String str="14###涓夋湀##21";
 		SimpleDateFormat sdf2=new SimpleDateFormat("y###MMM##d");
 		System.out.println(sdf2.parse(str));
 	}

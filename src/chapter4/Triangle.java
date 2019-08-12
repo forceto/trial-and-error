@@ -12,7 +12,7 @@ public class Triangle  extends TestAbstractRoot {
 	
 	private void setSides(double a, double b, double c) {
 		if(a>b+c||b>a+c||c>a+b){
-			System.out.println("Á½±ßÖ®ºÍÒª´óÓÚµÚÈı±ß");
+			System.out.println("ä¸¤è¾¹ä¹‹å’Œè¦å¤§äºç¬¬ä¸‰è¾¹");
 		}
 		this.a=a;
 		this.b=b;
@@ -25,9 +25,8 @@ public class Triangle  extends TestAbstractRoot {
 	}
 	@Override
 	public String getType() {
-		return "Èı½ÇĞÎ";
+		return "ä¸‰è§’å½¢";
 	}
 
 	
 }
-	

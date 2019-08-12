@@ -2,7 +2,7 @@ package chapter5;
 
 public class Computer {
 	private Output out;
-	//constructor ²ÎÊı´«µİÊ±·¢ÉúÉÏ×ªĞÍ
+	//constructor å‚æ•°ä¼ é€’æ—¶å‘ç”Ÿä¸Šè½¬å‹
 	public Computer(Output out){
 		this.out=out;
 	}

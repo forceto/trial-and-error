@@ -13,7 +13,7 @@ public class AutoBoxUnbox {
 			boolean o=(boolean)ob;
 			System.out.println(o);
 		}
-		//½«×Ö·ûÀàĞÍ×ª»»Îª»ù±¾ÀàĞÍ
+		//å°†å­—ç¬¦ç±»å‹è½¬æ¢ä¸ºåŸºæœ¬ç±»å‹
 		String a="123";
 		int a1=Integer.parseInt(a);
 		System.out.println("a="+a);
@@ -27,7 +27,7 @@ public class AutoBoxUnbox {
 		Float f=new Float(b);
 		System.out.println(f);
 		System.out.println("--------------------------");
-		//½«float×ª»»ÎªStringĞÍ
+		//å°†floatè½¬æ¢ä¸ºStringå‹
 		String str=String.valueOf(1.123f);
 		System.out.println("str:"+str);
 		float f2=Float.parseFloat(str);

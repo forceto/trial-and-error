@@ -2,7 +2,7 @@ package chapter5;
 
 public class Printer implements Output,Product{
 	private String[] printData=new String[MAX_CACHE_LINE];
-	//¼ÇÂ¼µ±Ç°ĞèÒª´òÓ¡µÄ×÷ÒµÊı
+	//è®°å½•å½“å‰éœ€è¦æ‰“å°çš„ä½œä¸šæ•°
 	private int dataNum=0;
 
 	@Override
@@ -12,11 +12,11 @@ public class Printer implements Output,Product{
 
 	@Override
 	public void out() {
-		//ÓĞ¾ÍÊä³ö
+		//æœ‰å°±è¾“å‡º
 		while(dataNum>0){
-			//Ã¿´Î¶¼´ÓÍ·¿ªÊ¼Êä³ö£¬Í·Êä³öºó£¬ÕûÌåÍùÇ°Å²Ò»¸öÎ»ÖÃ£¬Í·±»»»µô
+			//æ¯æ¬¡éƒ½ä»å¤´å¼€å§‹è¾“å‡ºï¼Œå¤´è¾“å‡ºåï¼Œæ•´ä½“å¾€å‰æŒªä¸€ä¸ªä½ç½®ï¼Œå¤´è¢«æ¢æ‰
 			System.out.println("printer:"+printData[0]);
-			//system.arraycopy()¸´ÖÆÊı×é£¬¿ÉÒÔ×Ô¼º¸ø×Ô¼º¸´ÖÆ
+			//system.arraycopy()å¤åˆ¶æ•°ç»„ï¼Œå¯ä»¥è‡ªå·±ç»™è‡ªå·±å¤åˆ¶
 			System.arraycopy(printData, 1, printData, 0, --dataNum);
 		}
 	}

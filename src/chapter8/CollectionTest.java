@@ -15,13 +15,13 @@ public class CollectionTest {
 		System.out.println(c.size());
 		c.remove(6);
 		System.out.println(c.size());
-		System.out.print("ÊÇ·ñcontain wukong\t");
+		System.out.print("æ˜¯å¦contain wukong\t");
 		if(c.contains("wukong"))
-			System.out.println("ÊÇ");
+			System.out.println("æ˜¯");
 		else
-			System.out.println("·ñ");
+			System.out.println("å¦");
 		boolean bool=c.contains("wokong");
-		c.add("Ìí¼ÓÔªËØÖĞ¡£¡£¡£");
+		c.add("æ·»åŠ å…ƒç´ ä¸­ã€‚ã€‚ã€‚");
 		Collection d=new ArrayList();
 		d.add(1);
 		d.add(2);
@@ -66,14 +66,14 @@ public class CollectionTest {
 						   "ww.size="+ww.size()+"\t"+
 						   "ee.size="+ee.size()+"\t"+
 						   "rr.size="+rr.size());
-		                //×ªÒå×Ö·û  Ë«ÒıºÅ ÓÃ  \"
+		                //è½¬ä¹‰å­—ç¬¦  åŒå¼•å· ç”¨  \"
 		System.out.println("qq contains \"w1\"?\t"+qq.contains("w1"));
 		System.out.println("ww contains \"e1\"?\t"+ww.contains("e1"));
 		System.out.println("ee contains \"q1\"?\t"+ee.contains("q1"));
 		qq.addAll(rr);
 		System.out.println("qq.size="+qq.size());
-		System.out.print("qqÓëeeÈ¡½»¼¯-->"); 
-		String s= qq.retainAll(ee)?"Íê³É":"³ö´í";
+		System.out.print("qqä¸eeå–äº¤é›†-->"); 
+		String s= qq.retainAll(ee)?"å®Œæˆ":"å‡ºé”™";
 		System.out.println(s);
 		System.out.println();
 		System.out.println();
@@ -82,22 +82,22 @@ public class CollectionTest {
 		System.out.println("qq atom:");
 		qq.forEach(obj->System.out.println(obj));
 		System.out.println("-----------------------");
-		System.out.println("½»¼¯");
+		System.out.println("äº¤é›†");
 		System.out.println(qq.size()+"\t"+c.size());
 		qq.retainAll(c);
 		System.out.println(qq.size());
 		
-		System.out.println("²¢¼¯"); 
+		System.out.println("å¹¶é›†"); 
 		System.out.println(qq.size()+"\t"+ee.size());
 		qq.addAll(ee);
 		System.out.println(qq.size());
 		
-		System.out.println("¼õÈ¥");
+		System.out.println("å‡å»");
 		System.out.println(qq.size()+"\t"+rr.size());
 		qq.removeAll(rr);
 		System.out.println(qq.size());
 		
-		System.out.println("Çå¿Õ");
+		System.out.println("æ¸…ç©º");
 		qq.clear();
 		System.out.println(qq.size());
 	}

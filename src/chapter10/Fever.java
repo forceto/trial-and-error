@@ -4,13 +4,13 @@ package chapter10;
  * Created by force_to on 2016/10/3.
  */
 
-// ×Ô¶¨ÒåÒì³£ÀàÒª¼Ì³Ğ Exception »ò RuntimeException
-// Í¬Ê±Ìá¹©Ò»¸öÎŞ²Î¹¹Ôìº¯ÊıºÍÒ»¸ö´øÒ»¸ö×Ö·û´®²ÎÊıµÄ¹¹Ôìº¯Êı
+// è‡ªå®šä¹‰å¼‚å¸¸ç±»è¦ç»§æ‰¿ Exception æˆ– RuntimeException
+// åŒæ—¶æä¾›ä¸€ä¸ªæ— å‚æ„é€ å‡½æ•°å’Œä¸€ä¸ªå¸¦ä¸€ä¸ªå­—ç¬¦ä¸²å‚æ•°çš„æ„é€ å‡½æ•°
 public class Fever extends Exception{
-    // ÎŞ²Î¹¹Ôì
+    // æ— å‚æ„é€ 
     public Fever(){}
 
-    // ÓĞ²Î¹¹Ôì
+    // æœ‰å‚æ„é€ 
     public Fever(String msg) {
         super(msg);
     }

@@ -11,16 +11,16 @@ public class NewFormatterTest {
 		isoDate();
 	}
 	private void book(){
-		//jdk8 ĞÂÔö¸ñÊ½Æ÷  TimeDateFormatter()
+		//jdk8 æ–°å¢æ ¼å¼å™¨  TimeDateFormatter()
 		DateTimeFormatter[] formatters=new DateTimeFormatter[]{
-				//Ê¹ÓÃ³£Á¿´´½¨DateTimeformatter¸ñÊ½Æ÷
+				//ä½¿ç”¨å¸¸é‡åˆ›å»ºDateTimeformatteræ ¼å¼å™¨
 				DateTimeFormatter.ISO_LOCAL_DATE,
 				DateTimeFormatter.ISO_LOCAL_TIME,
 				DateTimeFormatter.ISO_DATE_TIME,
-				//Ê¹ÓÃ±¾µØ»¯µÄ²»Í¬·ç¸ñ´´½¨DateTimeformatter¸ñÊ½Æ÷
+				//ä½¿ç”¨æœ¬åœ°åŒ–çš„ä¸åŒé£æ ¼åˆ›å»ºDateTimeformatteræ ¼å¼å™¨
 				DateTimeFormatter.ofLocalizedDateTime(FormatStyle.FULL,FormatStyle.LONG),
 				DateTimeFormatter.ofLocalizedTime(FormatStyle.LONG),
-				//¸ù¾İÄ£Ê½×Ö·û´®´´½¨DateTimeformatter¸ñÊ½Æ÷
+				//æ ¹æ®æ¨¡å¼å­—ç¬¦ä¸²åˆ›å»ºDateTimeformatteræ ¼å¼å™¨
 				DateTimeFormatter.ofPattern("G yyyy MMM dd HH:mm:ss"),
 		};
 		LocalDateTime date=LocalDateTime.now();
@@ -30,9 +30,9 @@ public class NewFormatterTest {
 		
 	}
 	private void isoDate(){
-		//½¨¸ñÊ½Æ÷
+		//å»ºæ ¼å¼å™¨
 		DateTimeFormatter d=DateTimeFormatter.ISO_DATE;
-		//´´½¨¶ÔÏó
+		//åˆ›å»ºå¯¹è±¡
 		LocalDate ld=LocalDate.now();
 		System.out.println(ld);
 		String str=d.format(ld);

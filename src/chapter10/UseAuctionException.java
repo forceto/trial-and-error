@@ -12,29 +12,16 @@ public class UseAuctionException {
             p = Double.parseDouble(price);
         } catch (NumberFormatException e) {
             e.printStackTrace();
-            throw new AuctionException("ÊäÈëµÄ±ØĞëÊÇdoubleĞÍÊı×Ö");
+            throw new AuctionException("è¾“å…¥çš„å¿…é¡»æ˜¯doubleå‹æ•°å­—");
         }
 
         if (startPrice > p) {
-            throw new AuctionException("³ö¼Û²»ÄÜ±È³õÊ¼¼Û¸ñµÍ");
+            throw new AuctionException("å‡ºä»·ä¸èƒ½æ¯”åˆå§‹ä»·æ ¼ä½");
         } else {
-            System.out.println("¹§Ï²Äã»ñµÃ´ËÅÄÆ·");
+            System.out.println("æ­å–œä½ è·å¾—æ­¤æ‹å“");
         }
 
 
 
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

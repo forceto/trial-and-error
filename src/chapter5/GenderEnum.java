@@ -1,8 +1,8 @@
 package chapter5;
 
 public enum GenderEnum {
-	//Ö±½Óµ÷ÓÃMALE»òFEMALE,Ôò¡°ÄĞ¡±»ò¡°Å®¡±£¬×Ô¶¯´«ÈëÃ¶¾ÙÀàµÄ¹¹ÔìÆ÷
-	MALE("ÄĞ"),FEMALE("Å®");
+	//ç›´æ¥è°ƒç”¨MALEæˆ–FEMALE,åˆ™â€œç”·â€æˆ–â€œå¥³â€ï¼Œè‡ªåŠ¨ä¼ å…¥æšä¸¾ç±»çš„æ„é€ å™¨
+	MALE("ç”·"),FEMALE("å¥³");
 	private final String name;
 	GenderEnum(String name){
 		this.name=name;

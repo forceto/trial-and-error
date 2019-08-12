@@ -6,7 +6,7 @@ public class SmallApple extends Apple{
 	}
 	
 	public String getInfo(){
-		//super.getInfo()返回的是Object类型
+		//super.getInfo()杩斿洖鐨勬槸Object绫诲瀷
 		return super.getInfo().toString();
 	}
 }

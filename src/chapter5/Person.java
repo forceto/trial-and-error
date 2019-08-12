@@ -24,11 +24,12 @@ public class Person {
 		this.idstr=idstr;
 		this.name=name;
 	}
-	//toString() 用于类的自我描述	public String toString()
+	//toString() 鐢ㄤ簬绫荤殑鑷垜鎻忚堪
+	public String toString()
 	{
 		return "name:"+name;
 	}
-	//重写equals（）方法
+	//閲嶅啓equals锛堬級鏂规硶
 	public boolean equals(Object obj)
 	{
 		if(this==obj)
@@ -47,21 +48,3 @@ public class Person {
 		System.out.println("try to override me uhhh... ");
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

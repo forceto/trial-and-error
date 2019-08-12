@@ -9,21 +9,9 @@ public class FirstRunnable implements Runnable {
     @Override
     public void run() {
         for (; i < 100 ; i++) {
-            // µ±Ïß³ÌÀàÊµÏÖRunnable½Ó¿Úºó£¬
-            // Ö»ÄÜÊ¹ÓÃThread.currentThreadÀ´»ñÈ¡µ±Ç°Ïß³Ì
+            // å½“çº¿ç¨‹ç±»å®žçŽ°RunnableæŽ¥å£åŽï¼Œ
+            // åªèƒ½ä½¿ç”¨Thread.currentThreadæ¥èŽ·å–å½“å‰çº¿ç¨‹
             System.out.println(Thread.currentThread().getName() + "\t" + i);
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-

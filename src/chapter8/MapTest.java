@@ -21,20 +21,20 @@ public class MapTest {
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private void basicMap(){
 		Map map=new HashMap();
-		//·ÅÈëkey-value¶Ô
+		//æ”¾å…¥key-valueå¯¹
 		map.put("Java", 109);
 		map.put("IOS",10);
 		map.put("Ajax",79);
 		map.put("Java EE", 99);
 		System.out.println(map.put("IOS", 99));
 		System.out.println(map);
-		//ÅĞ¶ÏÊÇ·ñ°üº¬Ö¸¶¨µÄkey
+		//åˆ¤æ–­æ˜¯å¦åŒ…å«æŒ‡å®šçš„key
 		System.out.println("key=IOS ?\t"+map.containsKey("IOS"));
-		//ÅĞ¶ÏÊÇ·ñ°üº¬Ö¸¶¨µÄvalue
+		//åˆ¤æ–­æ˜¯å¦åŒ…å«æŒ‡å®šçš„value
 		System.out.println("value=99 ?\t"+map.containsValue(99));
-		//»ñÈ¡key×é³ÉµÄ¼¯ºÏ£¬±éÀú
+		//è·å–keyç»„æˆçš„é›†åˆï¼Œéå†
 		for(Object key: map.keySet()){
-			//get(key) »ñÈ¡Ö¸¶¨keyµÄvalue
+			//get(key) è·å–æŒ‡å®škeyçš„value
 			System.out.println(key+"-->"+map.get(key));
 		}
 		System.out.println(map.remove("Ajax"));
@@ -45,7 +45,7 @@ public class MapTest {
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private void hashMapTest(){
-		//¶¨Òå2¸ö²âÊÔÀà
+		//å®šä¹‰2ä¸ªæµ‹è¯•ç±»
 		
 		class A{
 			int count;
@@ -100,8 +100,8 @@ public class MapTest {
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private void treeMapTest(){ 
-		//¶¨Òå²âÊÔÀà     
-		//treeMap ×ÔÈ»ÅÅĞò£¬±ØĞëÔÚÀàÖĞÊµÏÖComparable½Ó¿Ú
+		//å®šä¹‰æµ‹è¯•ç±»     
+		//treeMap è‡ªç„¶æ’åºï¼Œå¿…é¡»åœ¨ç±»ä¸­å®ç°Comparableæ¥å£
 		class R implements Comparable{
 			
 			int count;
@@ -109,7 +109,7 @@ public class MapTest {
 				this.count=count;
 			}
 			
-			//¿ØÖÆkeyµÄÊä³ö
+			//æ§åˆ¶keyçš„è¾“å‡º
 			public String toString(){
 				return "R[count:"+count+"]";
 			}
@@ -128,9 +128,9 @@ public class MapTest {
 		t.put(new R(9), "android");
 		System.out.println(t); 
 		
-		//·½·¨²âÊÔ
-		System.out.println("key×îĞ¡µÄ¼üÖµ¶Ô-->"+t.firstEntry());
-		System.out.println("key×î´óµÄ¼üÖµ¶Ô-->"+t.lastEntry());
+		//æ–¹æ³•æµ‹è¯•
+		System.out.println("keyæœ€å°çš„é”®å€¼å¯¹-->"+t.firstEntry());
+		System.out.println("keyæœ€å¤§çš„é”®å€¼å¯¹-->"+t.lastEntry());
 	}
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
@@ -151,8 +151,8 @@ public class MapTest {
 	private void identityHashMapTest(){
 		IdentityHashMap i=new IdentityHashMap();
 		/*
-		 * ÔÚIdentityHashMapÖĞ£¬keyÖ®¼ä²ÉÓÃ==½øĞĞÑÏ¸ñÅĞ¶Ï
-		 * ¶ÔÓÚÒıÓÃÀàĞÍ±äÁ¿£¬==±È½ÏµÄÊÇ¶ÔÏóµÄµØÖ·
+		 * åœ¨IdentityHashMapä¸­ï¼Œkeyä¹‹é—´é‡‡ç”¨==è¿›è¡Œä¸¥æ ¼åˆ¤æ–­
+		 * å¯¹äºå¼•ç”¨ç±»å‹å˜é‡ï¼Œ==æ¯”è¾ƒçš„æ˜¯å¯¹è±¡çš„åœ°å€
 		 */
 		i.put(new String("java1"), 1);
 		i.put(new String("java2"), 2);
@@ -164,13 +164,13 @@ public class MapTest {
 	@SuppressWarnings({"rawtypes","unchecked"})
 	private void enumMapTest(){
 		/*
-		 *´´½¨EnumMapÊ±£¬Ö¸¶¨Ò»¸öÃ¶¾ÙÀà
-		 * key±ØĞëÊÇ¸ÃÃ¶¾ÙÀàµÄÖµ
-		 * EnumMapÄÚ²¿°´ÕÕÃ¶¾ÙÖµÔÚÃ¶¾ÙÀàÖĞ¶¨ÒåµÄË³ĞòÅÅĞò
+		 *åˆ›å»ºEnumMapæ—¶ï¼ŒæŒ‡å®šä¸€ä¸ªæšä¸¾ç±»
+		 * keyå¿…é¡»æ˜¯è¯¥æšä¸¾ç±»çš„å€¼
+		 * EnumMapå†…éƒ¨æŒ‰ç…§æšä¸¾å€¼åœ¨æšä¸¾ç±»ä¸­å®šä¹‰çš„é¡ºåºæ’åº
 		 */
 		EnumMap e=new EnumMap(MonthEnum.class);
-		e.put(MonthEnum.APRIL, "ÈË¼äËÄÔÂ·¼·ÆÑ©");
-		e.put(MonthEnum.AUGUST, "ËªÒ¶ºìÓÚ¶şÔÂ»¨");
+		e.put(MonthEnum.APRIL, "äººé—´å››æœˆèŠ³è²é›ª");
+		e.put(MonthEnum.AUGUST, "éœœå¶çº¢äºäºŒæœˆèŠ±");
 		System.out.println(e);
 	}
 }

@@ -1,5 +1,5 @@
 package chapter5;
-//µ¥ÀıÀà 
+//å•ä¾‹ç±» 
 public class Singleton {
 	private static Singleton instance;
 	private Singleton(){}

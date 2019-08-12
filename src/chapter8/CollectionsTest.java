@@ -15,7 +15,7 @@ public class CollectionsTest {
 	
 	@SuppressWarnings({"rawtypes","unchecked"})
 	private void listCollectionTest(){
-		//List ÓĞĞò£¬°´ÕÕ²åÈëË³Ğò
+		//List æœ‰åºï¼ŒæŒ‰ç…§æ’å…¥é¡ºåº
 		ArrayList a=new ArrayList();
 		a.add(2);
 		a.add(-5);
@@ -23,28 +23,28 @@ public class CollectionsTest {
 		a.add(0);
 		System.out.println(a);
 		Collections.reverse(a);
-		System.out.println("µ¹ÖÃList...\t"+a);
+		System.out.println("å€’ç½®List...\t"+a);
 		Collections.sort(a);
-		System.out.println("¶ÔList½øĞĞÄ¬ÈÏÅÅĞò£¨µİÔö£©...\t"+a);
+		System.out.println("å¯¹Listè¿›è¡Œé»˜è®¤æ’åºï¼ˆé€’å¢ï¼‰...\t"+a);
 		Collections.shuffle(a); 
-		System.out.println("´òÂÒListµÄË³Ğò£¨shuffleÒëÎª:Ï´ÅÆ£©...\t"+a);
-		System.out.println("Êä³ö×î´óÖµ£º\t"+Collections.max(a)); 
-		System.out.println("Êä³ö×îĞ¡Öµ£º\t"+Collections.min(a));
-		System.out.println("½«0Ìæ»»Îª99\t"+Collections.replaceAll(a, 0, 99));
+		System.out.println("æ‰“ä¹±Listçš„é¡ºåºï¼ˆshuffleè¯‘ä¸º:æ´—ç‰Œï¼‰...\t"+a);
+		System.out.println("è¾“å‡ºæœ€å¤§å€¼ï¼š\t"+Collections.max(a)); 
+		System.out.println("è¾“å‡ºæœ€å°å€¼ï¼š\t"+Collections.min(a));
+		System.out.println("å°†0æ›¿æ¢ä¸º99\t"+Collections.replaceAll(a, 0, 99));
 		System.out.println(a);
 		Collections.sort(a);
-		System.out.println("°´µİÔöÖØÅÅList¡£¡£¡£\t"+a);
-		//Ö»ÓÃÅÅĞòºóµÄList²ÅÄÜÓÃ¶ş·Ö²éÕÒ,binarySearch()»ñµÃË÷Òı
+		System.out.println("æŒ‰é€’å¢é‡æ’Listã€‚ã€‚ã€‚\t"+a);
+		//åªç”¨æ’åºåçš„Listæ‰èƒ½ç”¨äºŒåˆ†æŸ¥æ‰¾,binarySearch()è·å¾—ç´¢å¼•
 		System.out.println(Collections.binarySearch(a, 3));
 	}
 	
-	//²»¿É±ä¼¯ºÏ
+	//ä¸å¯å˜é›†åˆ
 	@SuppressWarnings({"rawtypes","unchecked"})
 	private void unmodifiableTest(){
 		
-		//¿ÕµÄ¡¢²»¿É±äµÄList
+		//ç©ºçš„ã€ä¸å¯å˜çš„List
 		List unmod=Collections.emptyList();
-		//Ö»ÓĞÒ»¸öÔªËØ¡¢²»¿É±äµÄSet
+		//åªæœ‰ä¸€ä¸ªå…ƒç´ ã€ä¸å¯å˜çš„Set
 		Set unmodSet=Collections.singleton("Java");
 //		unmodSet.add("hello");
 		
@@ -52,10 +52,10 @@ public class CollectionsTest {
 		m.put("Java", 1);
 		m.put("Java EE", 2);
 		m.put("android", 3);
-		//·µ»ØMap¶ÔÏóµÄ²»¿É±ä°æ±¾ ,¼´ÊÓÍ¼£¨Ö»¶ÁÄ£Ê½£©
+		//è¿”å›Mapå¯¹è±¡çš„ä¸å¯å˜ç‰ˆæœ¬ ,å³è§†å›¾ï¼ˆåªè¯»æ¨¡å¼ï¼‰
 		Map unmodMap=Collections.unmodifiableMap(m); 
 		
-//	unmodMap.put("lol", 100);       ¸ÄĞĞÎŞ·¨Ö´ĞĞ                  
+//	unmodMap.put("lol", 100);       æ”¹è¡Œæ— æ³•æ‰§è¡Œ                  
 	}
 }
 

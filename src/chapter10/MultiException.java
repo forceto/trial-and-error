@@ -12,9 +12,9 @@ public class MultiException {
             c = a / b;
             System.out.println("result : \t" + c);
         } catch (IndexOutOfBoundsException | ArithmeticException | NumberFormatException e) {
-            System.out.println("·ÖÄ¸ÓĞ0£¬Êı×éÔ½½ç, Ã»ÓĞÊäÈëÕûÊıÊı×Ö");
+            System.out.println("åˆ†æ¯æœ‰0ï¼Œæ•°ç»„è¶Šç•Œ, æ²¡æœ‰è¾“å…¥æ•´æ•°æ•°å­—");
         } catch (Exception e) {
-            System.out.println("ÎŞ·¨´¦ÀíµÄÒì³£");
+            System.out.println("æ— æ³•å¤„ç†çš„å¼‚å¸¸");
         }
     }
 }

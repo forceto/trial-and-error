@@ -11,7 +11,7 @@ public class Triangle extends ShapeAbstract {
 	}
 	private void setSide(double a,double b,double c){
 		if(a>=b+c || b>=a+c || c>= a+b){
-			System.out.println("ÎŞ·¨¹¹³ÉÈı½ÇĞÎ");
+			System.out.println("æ— æ³•æ„æˆä¸‰è§’å½¢");
 		}
 		else{
 			System.out.println("Triangle bingo!");
@@ -20,7 +20,7 @@ public class Triangle extends ShapeAbstract {
 			this.c=c;
 		}
 	}
-	//ÊµÏÖ³éÏó·½·¨
+	//å®ç°æŠ½è±¡æ–¹æ³•
 	public double calPerimeter(){ 
 		return a+b+c;
 	}

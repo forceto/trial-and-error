@@ -4,14 +4,14 @@ public class StringBuilderTest {
 	public StringBuilderTest(){
 		StringBuilder s=new StringBuilder();
 		s.append("abc");
-		System.out.println("×·¼Ó\t"+s);
+		System.out.println("è¿½åŠ \t"+s);
 		s.insert(0, "000");
-		System.out.println("²åÈë\t"+s);
+		System.out.println("æ’å…¥\t"+s);
 		s.replace(5, 6, ",");
-		System.out.println("Ìæ»»\t"+s);
+		System.out.println("æ›¿æ¢\t"+s);
 		s.delete(5, 6);
-		System.out.println("É¾³ı\t"+s);
+		System.out.println("åˆ é™¤\t"+s);
 		s.reverse();
-		System.out.println("µ¹ÖÃ\t"+s);
+		System.out.println("å€’ç½®\t"+s);
 	}
 }

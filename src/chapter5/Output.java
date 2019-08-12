@@ -4,17 +4,17 @@ public interface Output {
 	int MAX_CACHE_LINE=50;
 	void out();
 	void getData(String msg);
-	//jdk 8 Ä¬ÈÏ·½·¨  ±ØĞëÇÒÖ»ÄÜÓÃdefaultĞŞÊÎ
+	//jdk 8 é»˜è®¤æ–¹æ³•  å¿…é¡»ä¸”åªèƒ½ç”¨defaultä¿®é¥°
 	default void print(String...msgs){
 		 for(String msg:msgs){
 			System.out.println(msg);
 		}
 	}
 	default void test(){
-		System.out.println("Ä¬ÈÏ·½·¨test£¨£©");
+		System.out.println("é»˜è®¤æ–¹æ³•testï¼ˆï¼‰");
 	}
-	//jdk 8 Àà·½·¨
+	//jdk 8 ç±»æ–¹æ³•
 	static String staticTest(){
-		return "Àà·½·¨";
+		return "ç±»æ–¹æ³•";
 	}
 }

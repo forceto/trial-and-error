@@ -13,7 +13,7 @@ public class UseFirstCallable {
         for (int i = 0 ; i < 100 ; i++) {
             System.out.println(Thread.currentThread().getName() + "\t" + i);
             if (i == 20) {
-                //创建线程
+                //鍒涘缓绾跨▼
                 new Thread(f1, "aaa").start();
                 new Thread(f2, "bbbbbbbbb").start();
             }

@@ -16,9 +16,9 @@ public class ListTest {
 		books.add(new String("java"));
 		books.add(new String("android"));
 		System.out.println(books);
-		//add£¨£©²åÈë£¬½«Ô­À´µÚ¶ş¸öÎ»ÖÃÉÏµÄÔªËØºóÒÆ
+		//addï¼ˆï¼‰æ’å…¥ï¼Œå°†åŸæ¥ç¬¬äºŒä¸ªä½ç½®ä¸Šçš„å…ƒç´ åç§»
 		books.add(1, new String("ajax"));
-		//ÀûÓÃListµÄË÷Òı±éÀú
+		//åˆ©ç”¨Listçš„ç´¢å¼•éå†
 		for(int i=0;i<books.size();i++){
 			System.out.println(books.get(i));
 		}
@@ -26,23 +26,23 @@ public class ListTest {
 		System.out.println("remove:"+a);
 		System.out.println(books);
 		System.out.println("ajax index:"+books.indexOf(new String("ajax")));
-		//Ìæ»»
+		//æ›¿æ¢
 		books.set(1, new String("java"));
 		System.out.println("replace:"+books);
-		//½ØÈ¡£¬·¶Î§£º[,)   ×ó±ÕÓÒ¿ª
+		//æˆªå–ï¼ŒèŒƒå›´ï¼š[,)   å·¦é—­å³å¼€
 		System.out.println("cut:"+books.subList(0, 2));
 		System.out.println();
-		System.out.println("ListIteratorµü´úÆ÷");
-		//List»ñÈ¡ListIteratorµü´úÆ÷
+		System.out.println("ListIteratorè¿­ä»£å™¨");
+		//Listè·å–ListIteratorè¿­ä»£å™¨
 		ListIterator lt=books.listIterator();
 		while(lt.hasNext()){
 			System.out.println(lt.next());
-			//ListIteratorµü´úÆ÷ÔÚµü´ú¹ı³ÌÖĞÄÜ²åÈëÔªËØ
+			//ListIteratorè¿­ä»£å™¨åœ¨è¿­ä»£è¿‡ç¨‹ä¸­èƒ½æ’å…¥å…ƒç´ 
 			lt.add("------------");
 		}
 		System.out.println();
-		//ListIteratorµü´úÆ÷ÄÜ·´Ïòµü´ú
-		System.out.println("¿ªÊ¼·´Ïòµü´ú...");
+		//ListIteratorè¿­ä»£å™¨èƒ½åå‘è¿­ä»£
+		System.out.println("å¼€å§‹åå‘è¿­ä»£...");
 		while(lt.hasPrevious()){
 			System.out.println(lt.previous());
 		}
@@ -51,14 +51,14 @@ public class ListTest {
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private void LinkedListTest(){
 		LinkedList book=new LinkedList();
-		//Ò»¸öË®Æ½µÄ¶ÓÁĞ£¬offerÊÇ´ÓÓÒÍù×ó²åÈë£¬pushÊÇ´Ó×óÍùÓÒ²åÈë£¬¼´Õ»¶¥ÔÚÓÒ±ß
+		//ä¸€ä¸ªæ°´å¹³çš„é˜Ÿåˆ—ï¼Œofferæ˜¯ä»å³å¾€å·¦æ’å…¥ï¼Œpushæ˜¯ä»å·¦å¾€å³æ’å…¥ï¼Œå³æ ˆé¡¶åœ¨å³è¾¹
 		book.offer("java");
 		book.push("java EE");
 		book.offerFirst("android");
 		book.push("jsp");
 		book.offer("javaScript");
 		System.out.println(book);
-		//ÓÃË÷Òı±éÀú
+		//ç”¨ç´¢å¼•éå†
 		for(int i=0;i<book.size();i++){
 			System.out.print(book.get(i)+",");
 		}
@@ -68,7 +68,7 @@ public class ListTest {
 		//pop
 		System.out.println("pop-->\t"+book.pop());
 		System.out.println("after pop:\t"+book);
-		System.out.println("pollµô¶ÓÁĞÖĞ×îºóÒ»¸ö\t"+book.pollLast());
+		System.out.println("pollæ‰é˜Ÿåˆ—ä¸­æœ€åä¸€ä¸ª\t"+book.pollLast());
 	}
 }
 

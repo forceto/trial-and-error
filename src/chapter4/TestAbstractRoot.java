@@ -2,15 +2,15 @@ package chapter4;
 
 public abstract class TestAbstractRoot {
 	{
-		System.out.println("Ö´ĞĞTestAbstrctRootµÄ³õÊ¼»¯¿ì");
+		System.out.println("æ‰§è¡ŒTestAbstrctRootçš„åˆå§‹åŒ–å¿«");
 	}
 	private String color;
 	public abstract double calPerimeter();
 	public abstract String getType();
 	public TestAbstractRoot(){}
-	public TestAbstractRoot(String color)
-	{
-		System.out.println("Ö´ĞĞTestAbstractRootµÄÓĞ²Î¹¹ÔìÆ÷...");
+	
+	public TestAbstractRoot(String color) {
+		System.out.println("æ‰§è¡ŒTestAbstractRootçš„æœ‰å‚æ„é€ å™¨...");
 		this.color=color;
 	}
 }

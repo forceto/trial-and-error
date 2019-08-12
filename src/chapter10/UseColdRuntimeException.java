@@ -17,6 +17,6 @@ public class UseColdRuntimeException {
     }
 
     public static void test() {
-        throw new ColdRuntimeException("ÎÒ¸ÐÃ°ÁË...");
+        throw new ColdRuntimeException("æˆ‘æ„Ÿå†’äº†...");
     }
 }

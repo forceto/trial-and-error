@@ -1,5 +1,5 @@
 package chapter5;
-//final ĞŞÊÎµÄÀà²»ÄÜÓĞ×ÓÀà
+//final ä¿®é¥°çš„ç±»ä¸èƒ½æœ‰å­ç±»
 public final class TestFinalClass {
 
 	public TestFinalClass() {

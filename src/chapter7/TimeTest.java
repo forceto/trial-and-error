@@ -20,20 +20,20 @@ public class TimeTest {
 		System.out.println(System.currentTimeMillis());
 		//-------Duration example--------
 		Duration d=Duration.ofSeconds(6000);
-		System.out.println("6000ÃëÏàµ±ÓÚ"+d.toMinutes()+"·Ö");
-		System.out.println("6000ÃëÏàµ±ÓÚ"+d.toHours()+"Ğ¡Ê±");
-		System.out.println("6000ÃëÏàµ±ÓÚ"+d.toDays()+"Ìì");
+		System.out.println("6000ç§’ç›¸å½“äº"+d.toMinutes()+"åˆ†");
+		System.out.println("6000ç§’ç›¸å½“äº"+d.toHours()+"å°æ—¶");
+		System.out.println("6000ç§’ç›¸å½“äº"+d.toDays()+"å¤©");
 		Clock clock2=Clock.offset(clock, d);
-		System.out.println("µ±Ç°Ê±¼ä¼Ó6000ÃëºóÎª£º\t"+clock2.instant());
+		System.out.println("å½“å‰æ—¶é—´åŠ 6000ç§’åä¸ºï¼š\t"+clock2.instant());
 		//--------Instant example--------
 		//get current time
 		System.out.println("----------------Instant example-------------");
 		Instant instant=Instant.now();
 		System.out.println(instant);
-		//instant ¼Ó6000Ãë
+		//instant åŠ 6000ç§’
 		Instant ins2=instant.plusSeconds(6000);
 		System.out.println(ins2);
-		//¸ù¾İ×Ö·û´®½âÎöInstant¶ÔÏó
+		//æ ¹æ®å­—ç¬¦ä¸²è§£æInstantå¯¹è±¡
 		Instant ins3=Instant.parse("2018-02-12T12:23:12.343Z");
 		System.out.println(ins3);
 		Instant ins4=ins3.plus(Duration.ofHours(5).plusMinutes(4));
@@ -53,29 +53,29 @@ public class TimeTest {
 		System.out.println(lt);
 		lt=LocalTime.of(22, 33);
 		System.out.println(lt);
-		System.out.print("·µ»ØµÚ86003ÃëÊÇÊ²Ã´Ê±¼ä-->");
+		System.out.print("è¿”å›ç¬¬86003ç§’æ˜¯ä»€ä¹ˆæ—¶é—´-->");
 		lt=LocalTime.ofSecondOfDay(86003);
 		System.out.println(lt);
 		System.out.println("----------LocalDateTime example-------");
 		LocalDateTime ldt=LocalDateTime.now();
-		System.out.println("µ±Ç°Ê±¼ä---------------->"+ldt);
-		System.out.print("µ±Ç°Ê±¼ä¼ÓÉÏ25Ğ¡Ê±3·Ö±ä³É-->");
+		System.out.println("å½“å‰æ—¶é—´---------------->"+ldt);
+		System.out.print("å½“å‰æ—¶é—´åŠ ä¸Š25å°æ—¶3åˆ†å˜æˆ-->");
 		LocalDateTime future=ldt.plusHours(25).plusMinutes(3);
 		System.out.println(future);
 		System.out.println("-------Year YearMonth MonthDay example---------");
 		Year year=Year.now();
 		System.out.println(year);
 		year=year.plusYears(5);
-		System.out.println("µ±Ç°Äê·İ¼Ó5Îª"+year);
-		System.out.print("Í¨¹ıÖÆ¶¨ÔÂ·İ»ñÈ¡YearMonth¶ÔÏó");
+		System.out.println("å½“å‰å¹´ä»½åŠ 5ä¸º"+year);
+		System.out.print("é€šè¿‡åˆ¶å®šæœˆä»½è·å–YearMonthå¯¹è±¡");
 		YearMonth ym=year.atMonth(10);
 		System.out.println(ym);
-		System.out.print("µ±Ç°Äê¼Ó5Äê¼õ2ÔÂ");
+		System.out.print("å½“å‰å¹´åŠ 5å¹´å‡2æœˆ");
 		ym=ym.plusYears(5).minusMonths(2);
 		System.out.println(ym);
 		MonthDay md=MonthDay.now();
 		System.out.println(md);
-		System.out.print("ÉèÎª5ÔÂ23ÈÕ");
+		System.out.print("è®¾ä¸º5æœˆ23æ—¥");
 		MonthDay m=md.with(Month.MAY).withDayOfMonth(23);
 		System.out.println(m);
 		

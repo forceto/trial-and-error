@@ -15,7 +15,7 @@ public class GenericTest {
 		useCopy();
 	}
 	
-	//java 7 µÄÁâĞÎÓï·¨
+	//java 7 çš„è±å½¢è¯­æ³•
 	private void diamondGrammar(){
 		List<String> book=new ArrayList<>();
 		book.add("java");
@@ -38,7 +38,7 @@ public class GenericTest {
 		System.out.println(a.getInfo());
 		a.setInfo("Canon");
 		System.out.println(a.getInfo());
-		//»ù±¾ÀàĞÍÒªÓÃ°ü×°Àà
+		//åŸºæœ¬ç±»å‹è¦ç”¨åŒ…è£…ç±»
 		Apple<Float> app=new Apple<>(2.23424f);
 		System.out.println(app.getInfo());
 		app.setInfo(4.454454f);
@@ -52,19 +52,19 @@ public class GenericTest {
 		System.out.println(r.getInfo());
 	}
 	
-	//´ø·ºĞÍÉùÃ÷µÄÀà
+	//å¸¦æ³›å‹å£°æ˜çš„ç±»
 	private void SmallAppleTest(){
 		SmallApple s=new SmallApple("smallApple...");
 		System.out.println(s.getInfo());
 	}
 	
-	//ÀàĞÍÍ¨Åä·ûµÄÉÏÏŞ
+	//ç±»å‹é€šé…ç¬¦çš„ä¸Šé™
 	private void upperBoundTest(){
 		/*
-		 * ³éÏóÀàShape
-		 * CircleOfShapeºÍRectangleOfShapeÊÇShapeµÄ×ÓÀà
-		 * ShapeÎª<? extends Shape>ÖĞ?´ú±íµÄÎªÖªÀàĞÍµÄÍ¨Åä·û   ÉÏÏŞ(upper bound)
-		 * ¼´£º?´ú±íµÄÀà±ØĞëÊÇShapeµÄ×ÓÀà
+		 * æŠ½è±¡ç±»Shape
+		 * CircleOfShapeå’ŒRectangleOfShapeæ˜¯Shapeçš„å­ç±»
+		 * Shapeä¸º<? extends Shape>ä¸­?ä»£è¡¨çš„ä¸ºçŸ¥ç±»å‹çš„é€šé…ç¬¦   ä¸Šé™(upper bound)
+		 * å³ï¼š?ä»£è¡¨çš„ç±»å¿…é¡»æ˜¯Shapeçš„å­ç±»
 		 */
 		List<CircleOfShape> circle=new ArrayList<>();
 		circle.add(new CircleOfShape());
@@ -79,23 +79,23 @@ public class GenericTest {
 		canvas.drawDiomand(diomand);
 	}
 
-	//ÔÚ¶¨ÒåÀàĞÍÊ±Éè¶¨ÉÏÏŞ
+	//åœ¨å®šä¹‰ç±»å‹æ—¶è®¾å®šä¸Šé™
 	private void typeParameterTest(){
 		AppleOfTypeParameter<Float> a1=new AppleOfTypeParameter<>();
 		a1.sum=1000f;
 		System.out.println(a1.sum);
-//		String ²»ÊÇNumberµÄ×ÓÀà£¬ÏÂĞĞ±¨´í
+//		String ä¸æ˜¯Numberçš„å­ç±»ï¼Œä¸‹è¡ŒæŠ¥é”™
 //		AppleOfTypeParameter<String> a2=new AppleOfTypeParameter<>();
 	}
 	
-	//¶¨Òå·ºĞÍ·½·¨£¬°Ñarray¸´ÖÆµ½Collection
+	//å®šä¹‰æ³›å‹æ–¹æ³•ï¼ŒæŠŠarrayå¤åˆ¶åˆ°Collection
 	public <T> void fromArrayToCollection(T[] a,Collection<T> c){
 		for(T o:a){
 			c.add((T) a);
 		}
 	}
 	
-	//Ê¹ÓÃ·ºĞÍ·½·¨
+	//ä½¿ç”¨æ³›å‹æ–¹æ³•
 	public void genericMethodTest(){
 		Object[] ob=new Object[100];
 		for(int i=0;i<ob.length;i++){
@@ -113,11 +113,11 @@ public class GenericTest {
 		fromArrayToCollection(sa, cs);
 		
 		/*
-		 * --------ÒÔ¼¯ºÏÀàµÄ·ºĞÍÎª×¼----------
-		 * ÒÔCollectionÖĞµÄ·ºĞÍÎª×î¸ßÉÏÏŞ£¬Êı×éµÄÀàĞÍ±ØĞëÊÇÆä»òÆä×ÓÀà
+		 * --------ä»¥é›†åˆç±»çš„æ³›å‹ä¸ºå‡†----------
+		 * ä»¥Collectionä¸­çš„æ³›å‹ä¸ºæœ€é«˜ä¸Šé™ï¼Œæ•°ç»„çš„ç±»å‹å¿…é¡»æ˜¯å…¶æˆ–å…¶å­ç±»
 		 */
 		//T-->Object	sa-->String 	co-->Object
-		//ÒòÎªStringÎªObjectµÄ×ÓÀàËùÒÔ¿ÉÒÔ
+		//å› ä¸ºStringä¸ºObjectçš„å­ç±»æ‰€ä»¥å¯ä»¥
 		fromArrayToCollection(sa, co);
 		
 		Integer [] ia=new Integer[10];
@@ -137,7 +137,7 @@ public class GenericTest {
 		//T-->Object	na-->Number		co-->Object 
 		fromArrayToCollection(na, co);
 
-		//na-->Number 	cs-->String		Number²»ÊÇStringÒ²²»ÊÇÆä×ÓÀàËùÒÔ±¨´í
+		//na-->Number 	cs-->String		Numberä¸æ˜¯Stringä¹Ÿä¸æ˜¯å…¶å­ç±»æ‰€ä»¥æŠ¥é”™
 		//romArrayToCollection(na, cs); 
 	}
 	
@@ -153,26 +153,26 @@ public class GenericTest {
 			apple.add(i*i);
 		}
 		List<Number> fruit=new ArrayList<>();
-		//Ö±½Ó´«Èë²ÎÊı£¬×Ô¶¯Æ¥ÅäÀàĞÍ
+		//ç›´æ¥ä¼ å…¥å‚æ•°ï¼Œè‡ªåŠ¨åŒ¹é…ç±»å‹
 		genericMethodTest2(apple, fruit);
 		System.out.println("apple:"+apple);
 		System.out.println("fruit:"+fruit);
 	}
 	
 	private void use_Foo_GenericConstructorTest(){ 
-		//ÒşÊ½Ö¸¶¨·ºĞÍ¹¹ÔìÆ÷ÖĞµÄTÎªString
+		//éšå¼æŒ‡å®šæ³›å‹æ„é€ å™¨ä¸­çš„Tä¸ºString
 		new Foo_GenericConstructorTest("Java");
-		//ÒşÊ½Ö¸¶¨·ºĞÍ¹¹ÔìÆ÷ÖĞµÄTÎªInteger
+		//éšå¼æŒ‡å®šæ³›å‹æ„é€ å™¨ä¸­çš„Tä¸ºInteger
 		new Foo_GenericConstructorTest(200);
 		
 		/*
-		 *ÏÔÊ½Ö¸¶¨·ºĞÍ¹¹ÔìÆ÷ÖĞµÄTÎªString
-		 *ÏÔÊ¾Ö¸¶¨µÄÀàĞÍ±ØĞëÓë´«ÈëÊı¾İÀàĞÍÏàÒ»ÖÂ 
+		 *æ˜¾å¼æŒ‡å®šæ³›å‹æ„é€ å™¨ä¸­çš„Tä¸ºString
+		 *æ˜¾ç¤ºæŒ‡å®šçš„ç±»å‹å¿…é¡»ä¸ä¼ å…¥æ•°æ®ç±»å‹ç›¸ä¸€è‡´ 
 		 */
 		new <String> Foo_GenericConstructorTest("Java EE");
 		
 		/*
-		 * ÏÔÊ¾Ö¸¶¨µÄÀàĞÍStringÓë´«ÈëÊı¾İÀàĞÍDouble²»Ò»ÖÂ£¬¹Ê³ö´í
+		 * æ˜¾ç¤ºæŒ‡å®šçš„ç±»å‹Stringä¸ä¼ å…¥æ•°æ®ç±»å‹Doubleä¸ä¸€è‡´ï¼Œæ•…å‡ºé”™
 		 * new <String> Foo_GenericConstructorTest("123.23");
 		 */
 	}
@@ -199,8 +199,8 @@ public class GenericTest {
 	}
 	
 	/*
-	 * Í¨Åä·ûµÄÏÂÏŞ
-	 * <? super T>  ?´ú±íµÄÀà±ØĞëÊÇT»òTµÄ¸¸Àà
+	 * é€šé…ç¬¦çš„ä¸‹é™
+	 * <? super T>  ?ä»£è¡¨çš„ç±»å¿…é¡»æ˜¯Tæˆ–Tçš„çˆ¶ç±»
 	 */
 	private <T> T copy(Collection<? super T> dest , Collection<T> src){
 		T last=null;
@@ -233,7 +233,7 @@ public class GenericTest {
 		List<Number> ln=new ArrayList<>();
 		List<Integer> li=new ArrayList<>();
 		li.add(32);
-		//ÀàĞÍ²»Æ¥Åä lastÎªNumber
+		//ç±»å‹ä¸åŒ¹é… lastä¸ºNumber
 		//Integer last=copy2(ln, li);
 	}
 }

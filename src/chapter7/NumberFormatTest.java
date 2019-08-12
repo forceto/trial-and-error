@@ -9,38 +9,38 @@ public class NumberFormatTest {
 		Locale[] locales={Locale.CHINA,Locale.JAPAN,Locale.GERMAN,Locale.US};
 		NumberFormat[] nf=new NumberFormat[12];
 		for(int i=0;i<locales.length;i++){
-//			Í¨ÓÃÊýÖµ¸ñÊ½Æ÷
+//			é€šç”¨æ•°å€¼æ ¼å¼å™¨
 			nf[i*3]=NumberFormat.getNumberInstance(locales[i]);
-//			°Ù·ÖÊý¸÷Ê±ÆÚ
+//			ç™¾åˆ†æ•°å„æ—¶æœŸ
 			nf[i*3+1]=NumberFormat.getPercentInstance(locales[i]);
-//			»õ±Ò¸ñÊ½Æ÷
+//			è´§å¸æ ¼å¼å™¨
 			nf[i*3+2]=NumberFormat.getCurrencyInstance(locales[i]);                             
 		}
 		for(int i=0;i<1;i++){
-//			Á¬ÐøÅÐ¶Ï
-//          ÈýÄ¿ÔËËã·û (±í´ïÊ½1)?(±í´ïÊ½2):(±í´ïÊ½3)£¬
-//			¼ÆËã·½·¨ÊÇÕâÑùµÄ£º±í´ïÊ½1ÊÇÒ»¸öÂß¼­±í´ïÊ½£¬
-//			Èç¹ûÆäÖµÎªtrue£¬
-//			ÔòÕû¸ö±í´ïÊ½µÄÖµÎª±í´ïÊ½2µÄÖµ£¬
-//			·ñÔòÎª±í´ïÊ½3µÄÖµ						
-			String tip= i==0 ? "-----ÖÐ¹úµÄ¸ñÊ½-----":
-				i==1 ? "----ÈÕ±¾µÄ¸ñÊ½----":
-					i==2 ? "----µÂ¹úµÄ¸ñÊ½----":"----ÃÀ¹úµÄ¸ñÊ½----";
+//			è¿žç»­åˆ¤æ–­
+//          ä¸‰ç›®è¿ç®—ç¬¦ (è¡¨è¾¾å¼1)?(è¡¨è¾¾å¼2):(è¡¨è¾¾å¼3)ï¼Œ
+//			è®¡ç®—æ–¹æ³•æ˜¯è¿™æ ·çš„ï¼šè¡¨è¾¾å¼1æ˜¯ä¸€ä¸ªé€»è¾‘è¡¨è¾¾å¼ï¼Œ
+//			å¦‚æžœå…¶å€¼ä¸ºtrueï¼Œ
+//			åˆ™æ•´ä¸ªè¡¨è¾¾å¼çš„å€¼ä¸ºè¡¨è¾¾å¼2çš„å€¼ï¼Œ
+//			å¦åˆ™ä¸ºè¡¨è¾¾å¼3çš„å€¼						
+			String tip= i==0 ? "-----ä¸­å›½çš„æ ¼å¼-----":
+				i==1 ? "----æ—¥æœ¬çš„æ ¼å¼----":
+					i==2 ? "----å¾·å›½çš„æ ¼å¼----":"----ç¾Žå›½çš„æ ¼å¼----";
 			System.out.println(tip);
-			System.out.println("Í¨ÓÃÊý¾Ý¸ñÊ½£º"+nf[i*3].format(d));
-			System.out.println("°Ù·Ö±ÈÊý¾Ý¸ñÊ½£º"+nf[i*3+1].format(d));
-			System.out.println("»õ±ÒÊý¾Ý¸ñÊ½£º"+nf[i*3+2].format(d));
+			System.out.println("é€šç”¨æ•°æ®æ ¼å¼ï¼š"+nf[i*3].format(d));
+			System.out.println("ç™¾åˆ†æ¯”æ•°æ®æ ¼å¼ï¼š"+nf[i*3+1].format(d));
+			System.out.println("è´§å¸æ•°æ®æ ¼å¼ï¼š"+nf[i*3+2].format(d));
 			
 		}
 		
 	}
 	private void newTest(){
 		double d=12312389787.1233345345346;
-//		¢Ù¸ø³öµØÇø
+//		â‘ ç»™å‡ºåœ°åŒº
 		Locale locale=Locale.CHINA;
-//		¢Ú´«Èë²ÎÊý,´´½¨¶ÔÏó
+//		â‘¡ä¼ å…¥å‚æ•°,åˆ›å»ºå¯¹è±¡
 		NumberFormat nf=NumberFormat.getCurrencyInstance(locale);
-//		¢Ûµ÷ÓÃ¸ñÊ½Æ÷
+//		â‘¢è°ƒç”¨æ ¼å¼å™¨
 		String format=nf.format(d);
 		System.out.println(format);
 		Locale l=Locale.ITALY;

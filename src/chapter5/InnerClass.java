@@ -1,20 +1,20 @@
 package chapter5;
 
 public class InnerClass {
-	private String a="Íâ²¿ÀàÊµÀı±äÁ¿";
+	private String a="å¤–éƒ¨ç±»å®ä¾‹å˜é‡";
 	private String b="^_^";
 	//inner class
 	private class InClass{
-		private String a="ÄÚ²¿ÀàÊµÀı±äÁ¿";
+		private String a="å†…éƒ¨ç±»å®ä¾‹å˜é‡";
 		public void info(){
-			String a="ÄÚ²¿Àà¾Ö²¿±äÁ¿";
+			String a="å†…éƒ¨ç±»å±€éƒ¨å˜é‡";
 			//output
 			System.out.println(InnerClass.this.a);
 			System.out.println(this.a);
 			System.out.println(a);
 		}
 		public void accessOut(){
-			System.out.println("Íâ²¿Àà³ÉÔ±±äÁ¿"+b);
+			System.out.println("å¤–éƒ¨ç±»æˆå‘˜å˜é‡"+b);
 		}
 	}
 	public void test(){
@@ -24,6 +24,6 @@ public class InnerClass {
 		InClass i=new InClass();
 		i.accessOut();
 		System.out.println("i.a="+i.a);
-		System.out.println("ÄÚ²¿ÀàÊµÀı±äÁ¿£º"+new InClass().a);
+		System.out.println("å†…éƒ¨ç±»å®ä¾‹å˜é‡ï¼š"+new InClass().a);
 	}
 }

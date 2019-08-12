@@ -13,32 +13,16 @@ public class SimpleThrow {
         runtimeTest();
     }
 
-    // Å×³öcheckedÒì³£
-    // ÔÚ·½·¨Ç©ÃûÖĞ±ØĞëÓĞthrows
+    // æŠ›å‡ºcheckedå¼‚å¸¸
+    // åœ¨æ–¹æ³•ç­¾åä¸­å¿…é¡»æœ‰throws
     public static void checkedTest() throws Exception{
         System.out.println("checkedTest working...");
-        throw new Exception("ÕâÊÇcheckedTest Å×³öµÄ Exception ");
+        throw new Exception("è¿™æ˜¯checkedTest æŠ›å‡ºçš„ Exception ");
     }
 
-    // Å×³öRuntimeÒì³£
+    // æŠ›å‡ºRuntimeå¼‚å¸¸
     public static void runtimeTest() {
         System.out.println("runtimeTest working...");
-        throw new RuntimeException("ÕâÊÇruntimeÅ×³öµÄRuntimeException");
+        throw new RuntimeException("è¿™æ˜¯runtimeæŠ›å‡ºçš„RuntimeException");
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

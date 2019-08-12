@@ -12,7 +12,7 @@ public class CalenderTest {
 		Calendar c=Calendar.getInstance();
 		System.out.println(c.getTime()); 
 		System.err.println(c.get(YEAR));
-		//ÔÂ·İ´Ó0¿ªÊ¼µ½11£¬ÏÔÊ¾Öµ±ÈÊµ¼ÊÔÂ·İĞ¡Ò»
+		//æœˆä»½ä»0å¼€å§‹åˆ°11ï¼Œæ˜¾ç¤ºå€¼æ¯”å®é™…æœˆä»½å°ä¸€
 		System.err.println(c.get(MONTH));
 		System.err.println(c.get(DATE));
 		System.out.println("----------------------");
@@ -37,7 +37,7 @@ public class CalenderTest {
 
 	}
 	private void setAmendDelay(){ 
-		//set()·½·¨µÄÑÓ³ÙĞŞ¸Ä
+		//set()æ–¹æ³•çš„å»¶è¿Ÿä¿®æ”¹
 		Calendar ca=Calendar.getInstance();
 		ca.set(2003, 7, 31);
 		ca.set(MONTH, 8);

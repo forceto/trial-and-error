@@ -2,19 +2,19 @@ package chapter5;
 
 public class EnumTest {
 	public EnumTest(SeasonEnum s){
-		//switch£¨£© ÖĞµÄÖµ¿ÉÒÔÊÇÃ¶¾ÙÖµ
+		//switchï¼ˆï¼‰ ä¸­çš„å€¼å¯ä»¥æ˜¯æšä¸¾å€¼
 		switch(s){
 		case SPRING:
-			System.out.println("´º");
+			System.out.println("æ˜¥");
 			break;
 		case SUMMER:
-			System.out.println("ÏÄ");
+			System.out.println("å¤");
 			break;
 		case FALL:
-			System.out.println("Çï");
+			System.out.println("ç§‹");
 			break;
 		case WINTER:
-			System.out.println("¶¬");
+			System.out.println("å†¬");
 		}
 		
 	}

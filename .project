@@ -33,11 +33,4 @@
 		<nature>com.boothen.jsonedit.validation.nature</nature>
 		<nature>org.eclipse.wst.common.project.facet.core.nature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>OtherFile/html-trial</name>
-			<type>2</type>
-			<locationURI>PARENT-2-PROJECT_LOC/Sublime%20Workspace/html-trial</locationURI>
-		</link>
-	</linkedResources>
 </projectDescription>

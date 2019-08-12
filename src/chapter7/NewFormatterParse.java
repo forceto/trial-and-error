@@ -20,43 +20,43 @@ public class NewFormatterParse {
 	}
 
 	private void copyBook() {
-		// ¶¨ÒåÈÎÒâ¸ñÊ½ÈÕÆÚÊ±¼ä×Ö·û´®
-		String str1 = "2014==04==12 01Ê±06·Ö09Ãë";
-		// ¶¨Òå½âÎöËùÓÃµÄ¸ñÊ½Æ÷µÄ¸ñÊ½
+		// å®šä¹‰ä»»æ„æ ¼å¼æ—¥æœŸæ—¶é—´å­—ç¬¦ä¸²
+		String str1 = "2014==04==12 01æ—¶06åˆ†09ç§’";
+		// å®šä¹‰è§£ææ‰€ç”¨çš„æ ¼å¼å™¨çš„æ ¼å¼
 		DateTimeFormatter formatter1 = DateTimeFormatter.ofPattern(
-			// ÑÏ¸ñÇø·Ö´óĞ¡Ğ´£¬·ñÔò±¨´í¡£
-			// ÔÂ·İºÍÊ± ÊÇ´óĞ´£¬¼´£ºMM ºÍ HH
-			// ÆäËûĞ¡Ğ´
-			"yyyy==MM==dd HHÊ±mm·ÖssÃë");
-		// Ö´ĞĞ½âÎö------------------------------×Ö·û´®----¸ñÊ½Æ÷----
+			// ä¸¥æ ¼åŒºåˆ†å¤§å°å†™ï¼Œå¦åˆ™æŠ¥é”™ã€‚
+			// æœˆä»½å’Œæ—¶ æ˜¯å¤§å†™ï¼Œå³ï¼šMM å’Œ HH
+			// å…¶ä»–å°å†™
+			"yyyy==MM==dd HHæ—¶mmåˆ†ssç§’");
+		// æ‰§è¡Œè§£æ------------------------------å­—ç¬¦ä¸²----æ ¼å¼å™¨----
 		LocalDateTime dt1 = LocalDateTime.parse(str1, formatter1);
 		System.out.println(dt1);
-		String str2 = "2342$$$ËÄÔÂ$$$13 20Ğ¡Ê±";
-		DateTimeFormatter dtf2 = DateTimeFormatter.ofPattern("yyyy$$$MMM$$$dd HHĞ¡Ê±");
+		String str2 = "2342$$$å››æœˆ$$$13 20å°æ—¶";
+		DateTimeFormatter dtf2 = DateTimeFormatter.ofPattern("yyyy$$$MMM$$$dd HHå°æ—¶");
 		LocalDateTime ld2 = LocalDateTime.parse(str2, dtf2);
 		System.out.println(ld2);
 	}
 	private void newMethod(){ 
-		// È¡µ±Ç°ÈÕÆÚ£º
+		// å–å½“å‰æ—¥æœŸï¼š
 		LocalDate today=LocalDate.now();
 		System.out.println(today);
-		// ¸ù¾İÄêÔÂÈÕÈ¡ÈÕÆÚ£¬12ÔÂ¾ÍÊÇ12£º
+		// æ ¹æ®å¹´æœˆæ—¥å–æ—¥æœŸï¼Œ12æœˆå°±æ˜¯12ï¼š
 		LocalDate crischristmas = LocalDate.of(2014, 12, 25); // -> 2014-12-25
-		// ¸ù¾İ×Ö·û´®È¡£º
-		LocalDate endOfFeb = LocalDate.parse("2014-02-28"); // ÑÏ¸ñ°´ÕÕISO yyyy-MM-ddÑéÖ¤£¬02Ğ´³É2¶¼²»ĞĞ£¬µ±È»Ò²ÓĞÒ»¸öÖØÔØ·½·¨ÔÊĞí×Ô¼º¶¨Òå¸ñÊ½
-		//LocalDate.parse("2014-02-29");  ÎŞĞ§ÈÕÆÚÎŞ·¨Í¨¹ı£ºDateTimeParseException: Invalid date
+		// æ ¹æ®å­—ç¬¦ä¸²å–ï¼š
+		LocalDate endOfFeb = LocalDate.parse("2014-02-28"); // ä¸¥æ ¼æŒ‰ç…§ISO yyyy-MM-ddéªŒè¯ï¼Œ02å†™æˆ2éƒ½ä¸è¡Œï¼Œå½“ç„¶ä¹Ÿæœ‰ä¸€ä¸ªé‡è½½æ–¹æ³•å…è®¸è‡ªå·±å®šä¹‰æ ¼å¼
+		//LocalDate.parse("2014-02-29");  æ— æ•ˆæ—¥æœŸæ— æ³•é€šè¿‡ï¼šDateTimeParseException: Invalid date
 
-		//ÈÕÆÚ×ª»»¾­³£Óöµ½£¬±ÈÈç£º
-		// È¡±¾ÔÂµÚ1Ìì£º
+		//æ—¥æœŸè½¬æ¢ç»å¸¸é‡åˆ°ï¼Œæ¯”å¦‚ï¼š
+		// å–æœ¬æœˆç¬¬1å¤©ï¼š
 		LocalDate firstDayOfThisMonth = today.with(TemporalAdjusters.firstDayOfMonth()); // 2014-12-01
-		System.out.println("±¾ÔÂµÚÒ»Ìì£º"+firstDayOfThisMonth);
-		// È¡±¾ÔÂµÚ2Ìì£º
+		System.out.println("æœ¬æœˆç¬¬ä¸€å¤©ï¼š"+firstDayOfThisMonth);
+		// å–æœ¬æœˆç¬¬2å¤©ï¼š
 		LocalDate secondDayOfThisMonth = today.withDayOfMonth(2); // 2014-12-02
-		// È¡±¾ÔÂ×îºóÒ»Ìì£¬ÔÙÒ²²»ÓÃ¼ÆËãÊÇ28£¬29£¬30»¹ÊÇ31£º
+		// å–æœ¬æœˆæœ€åä¸€å¤©ï¼Œå†ä¹Ÿä¸ç”¨è®¡ç®—æ˜¯28ï¼Œ29ï¼Œ30è¿˜æ˜¯31ï¼š
 		LocalDate lastDayOfThisMonth = today.with(TemporalAdjusters.lastDayOfMonth()); // 2014-12-31
-		// È¡ÏÂÒ»Ìì£º
-		LocalDate firstDayOf2015 = lastDayOfThisMonth.plusDays(1); // ±ä³ÉÁË2015-01-01
-		// È¡2015Äê1ÔÂµÚÒ»¸öÖÜÒ»£¬Õâ¸ö¼ÆËãÓÃCalendarÒªËÀµôºÜ¶àÄÔÏ¸°û£º
+		// å–ä¸‹ä¸€å¤©ï¼š
+		LocalDate firstDayOf2015 = lastDayOfThisMonth.plusDays(1); // å˜æˆäº†2015-01-01
+		// å–2015å¹´1æœˆç¬¬ä¸€ä¸ªå‘¨ä¸€ï¼Œè¿™ä¸ªè®¡ç®—ç”¨Calendarè¦æ­»æ‰å¾ˆå¤šè„‘ç»†èƒï¼š
 		LocalDate firstMondayOf2015 = LocalDate.parse("2015-01-01").
 				with(TemporalAdjusters.firstInMonth(DayOfWeek.MONDAY)); // 2015-01-05
 	}

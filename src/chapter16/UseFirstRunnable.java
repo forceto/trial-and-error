@@ -9,9 +9,9 @@ public class UseFirstRunnable {
             System.out.println(Thread.currentThread().getName() + "\t" + i);
             if (i == 20) {
                 FirstRunnable f = new FirstRunnable();
-                //´´½¨µÚÒ»¸öÏß³Ì
+                //åˆ›å»ºç¬¬ä¸€ä¸ªçº¿ç¨‹
                 new Thread(f,"aaa").start();
-                // ´´½¨µÚ¶þ¸öÏß³Ì
+                // åˆ›å»ºç¬¬äºŒä¸ªçº¿ç¨‹
                 new Thread(f, "bbbbbbbbbbbbb").start();
             }
         }

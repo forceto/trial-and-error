@@ -15,7 +15,7 @@ public class Car extends Vehicle {
     }
 
     @Deprecated
-    // 即使用了@Deprecated 当调用该方法时依旧会执行
+    // 鍗充娇鐢ㄤ簡@Deprecated 褰撹皟鐢ㄨ鏂规硶鏃朵緷鏃т細鎵ц
     public void show() {
         System.out.println("Car show....  @Deprecated");
     }

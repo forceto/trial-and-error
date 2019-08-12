@@ -14,13 +14,13 @@ public class SetTest {
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private void LinkedHashSetTest() {
-		// LinkedHashSet°´ÕÕ²åÈëË³Ğò±£´æ
+		// LinkedHashSetæŒ‰ç…§æ’å…¥é¡ºåºä¿å­˜
 		LinkedHashSet linkHash = new LinkedHashSet<>();
-		// Ôö¼ÓÔªËØ
+		// å¢åŠ å…ƒç´ 
 		linkHash.add("Link");
 		linkHash.add("hash");
 		System.out.println(linkHash);
-		// É¾³ıÔªËØ
+		// åˆ é™¤å…ƒç´ 
 		linkHash.remove("Link");
 		System.out.println(linkHash);
 	}
@@ -28,7 +28,7 @@ public class SetTest {
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private void TreeSet_DefaultSort() {
 		TreeSet tree = new TreeSet();
-		// ×Ô¶¯×°Ïä
+		// è‡ªåŠ¨è£…ç®±
 		tree.add(12);
 		tree.add(123);
 		tree.add(34);
@@ -38,20 +38,20 @@ public class SetTest {
 				tree.add(i);
 		}
 		System.out.println("tree set:" + tree);
-		// È¡µÚÒ»¸öÔªËØ
+		// å–ç¬¬ä¸€ä¸ªå…ƒç´ 
 		System.out.println("first atom:" + tree.first());
-		// È¡×îºóÒ»¸öÔªËØ
+		// å–æœ€åä¸€ä¸ªå…ƒç´ 
 		System.out.println("last atom:" + tree.last());
-		// ·µ»ØĞ¡ÓÚÖÆ¶¨ÊıÖµµÄ¼¯ºÏ
-		System.out.println("Ğ¡ÓÚ40µÄÊı×é³ÉµÄ¼¯ºÏ£º" + tree.headSet(40));
-		// ·µ»Ø´óÓÚµÈÓÚÖ¸¶¨ÊıÖµµÄ¼¯ºÏ
-		System.out.println("´óÓÚµÈÓÚ56µÄÊı×é³ÉµÄ¼¯ºÏ:" + tree.tailSet(56));
+		// è¿”å›å°äºåˆ¶å®šæ•°å€¼çš„é›†åˆ
+		System.out.println("å°äº40çš„æ•°ç»„æˆçš„é›†åˆï¼š" + tree.headSet(40));
+		// è¿”å›å¤§äºç­‰äºæŒ‡å®šæ•°å€¼çš„é›†åˆ
+		System.out.println("å¤§äºç­‰äº56çš„æ•°ç»„æˆçš„é›†åˆ:" + tree.tailSet(56));
 		System.out.println(tree);
-		System.out.println("Ğ¡ÓÚ21µÄ×î´óÊı£º" + tree.lower(21));
-		System.out.println("´óÓÚ35µÄ×îĞ¡Êı:" + tree.higher(35));
+		System.out.println("å°äº21çš„æœ€å¤§æ•°ï¼š" + tree.lower(21));
+		System.out.println("å¤§äº35çš„æœ€å°æ•°:" + tree.higher(35));
 	}
 
-	//½«¶ÔÏó·ÅÈëTreeSet
+	//å°†å¯¹è±¡æ”¾å…¥TreeSet
 	private void TreeSetObjectTest() {
 		@SuppressWarnings("rawtypes")
 		class Zoo implements Comparable{
@@ -65,7 +65,7 @@ public class SetTest {
 				return true;
 			}
 			
-			//ÊµÏÖComparable½Ó¿ÚµÄcompareTo£¨£©·½·¨
+			//å®ç°Comparableæ¥å£çš„compareToï¼ˆï¼‰æ–¹æ³•
 			public int compareTo(Object o) {
 				return 1;
 			}
@@ -77,12 +77,12 @@ public class SetTest {
 		System.out.println(set.add(z1));
 		((Zoo)set.first()).age=1;
 		System.out.println(((Zoo)set.last()).age);
-		//µ±ĞŞ¸ÄµÄsetÖĞµÚÒ»¸öµÄageºó£¬µÚ¶ş¸öµÄageÒ²¸ü¸ÄÁË£¬ËµÃ÷¶şÕßÔÚÄÚ´æÖĞÊÇÍ¬Ò»¸öÔªËØ
+		//å½“ä¿®æ”¹çš„setä¸­ç¬¬ä¸€ä¸ªçš„ageåï¼Œç¬¬äºŒä¸ªçš„ageä¹Ÿæ›´æ”¹äº†ï¼Œè¯´æ˜äºŒè€…åœ¨å†…å­˜ä¸­æ˜¯åŒä¸€ä¸ªå…ƒç´ 
 	}
 	
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private void TreeSetObjectTest2() {
-		//³ÌĞòĞŞ¸ÄÁË·ÅÈëTreeSetÖĞµÄ¶ÔÏóµÄÊµÀı±äÁ¿ºó£¬TreeSet²»»áÔÙ´Îµ÷ÕûË³Ğò
+		//ç¨‹åºä¿®æ”¹äº†æ”¾å…¥TreeSetä¸­çš„å¯¹è±¡çš„å®ä¾‹å˜é‡åï¼ŒTreeSetä¸ä¼šå†æ¬¡è°ƒæ•´é¡ºåº
 		@SuppressWarnings("rawtypes")
 		class R implements Comparable{
 			int count;
@@ -121,17 +121,17 @@ public class SetTest {
 		ts1.add(new R(-2));
 		System.out.println(ts1);
 		
-		//È¡³öµÚÒ»¸öÔªËØ
+		//å–å‡ºç¬¬ä¸€ä¸ªå…ƒç´ 
 		R r1=(R)ts1.first();
-		//¸ÄÖµ
+		//æ”¹å€¼
 		r1.count=20;
-		//È¡³ö×îºóÒ»¸öÔªËØ
+		//å–å‡ºæœ€åä¸€ä¸ªå…ƒç´ 
 		R r2=(R)ts1.last();
-		//¸ÃÖµ
+		//è¯¥å€¼
 		r2.count=-2;
 		
 		System.out.println(ts1);
-		//ĞŞ¸Äºó£¬TreeSet²»ÔÙ×Ô¶¯ÅÅĞò¡£
+		//ä¿®æ”¹åï¼ŒTreeSetä¸å†è‡ªåŠ¨æ’åºã€‚
 		System.out.println(ts1.remove(new R(-2)));
 		System.out.println(ts1.remove(new R(5)));
 		System.out.println(ts1);
@@ -141,20 +141,20 @@ public class SetTest {
 		System.out.println(ts1);
 		
 		
-		//ÊµÏÖComparator½Ó¿Ú£¬½øĞĞ×Ô¶¨ÒåÅÅĞò
+		//å®ç°Comparatoræ¥å£ï¼Œè¿›è¡Œè‡ªå®šä¹‰æ’åº
 		@SuppressWarnings("rawtypes")
 		class DescendSort implements Comparator{
 
-			//compare(a,b)ÀàËÆÓÚ a.compareTo(b)
+			//compare(a,b)ç±»ä¼¼äº a.compareTo(b)
 			public int compare(Object o1, Object o2) {
 				R r1=(R)o1;
 				R r2=(R)o2;
-				//×ÜÊÇ´ÓĞ¡µ½´óÊä³ö£¬¼´return -1 µÄÈÏÎªÊÇĞ¡µÄ
+				//æ€»æ˜¯ä»å°åˆ°å¤§è¾“å‡ºï¼Œå³return -1 çš„è®¤ä¸ºæ˜¯å°çš„
 				return r1.count < r2.count ? 1:r1.count > r2.count? -1:0;
 			}
 			
 		}
-							//´«Èë×Ô¶¨ÒåÅÅĞò¹æÔò
+							//ä¼ å…¥è‡ªå®šä¹‰æ’åºè§„åˆ™
 		TreeSet ts2=new TreeSet(new DescendSort() );
 		ts2.add(new R(5));
 		ts2.add(new R(-3));
@@ -184,10 +184,10 @@ public class SetTest {
 	
 }
 /*
- * SetÖĞĞÔÄÜ×îºÃ£ºEnumSet£¬µ«Ö»ÄÜ´æÍ¬Ò»¸öÃ¶¾ÙÀàµÄÃ¶¾ÙÖµ×÷ÎªÔªËØ
- *ÕûÌåĞÔÄÜ   HashSet>TreeSet
- *Ôö¡¢²é£ºHashSet
- *ÅÅĞò£ºTreeSet
- *±éÀú:LinkedHashSet
+ * Setä¸­æ€§èƒ½æœ€å¥½ï¼šEnumSetï¼Œä½†åªèƒ½å­˜åŒä¸€ä¸ªæšä¸¾ç±»çš„æšä¸¾å€¼ä½œä¸ºå…ƒç´ 
+ *æ•´ä½“æ€§èƒ½   HashSet>TreeSet
+ *å¢ã€æŸ¥ï¼šHashSet
+ *æ’åºï¼šTreeSet
+ *éå†:LinkedHashSet
  * */
  

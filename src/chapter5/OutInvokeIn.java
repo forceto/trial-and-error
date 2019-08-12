@@ -4,8 +4,8 @@ import chapter5.StaticInnerClass;
 
 public class OutInvokeIn {
 	public OutInvokeIn(){
-		//µ÷ÓÃÄÚ²¿Àà
-		//Àí½â£ºÄÚ²¿Àà¼ÄÉúÔÚÍâ²¿ÀàÖĞ
+		//è°ƒç”¨å†…éƒ¨ç±»
+		//ç†è§£ï¼šå†…éƒ¨ç±»å¯„ç”Ÿåœ¨å¤–éƒ¨ç±»ä¸­
 		StaticInnerClass.In i=new StaticInnerClass().new In("hello");
 	}
 }

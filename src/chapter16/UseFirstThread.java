@@ -7,12 +7,12 @@ package chapter16;
 public class UseFirstThread {
     public UseFirstThread() {
         for (int i = 0 ; i < 100 ; i++) {
-            // Thread.currentThread() »ñÈ¡µ±Ç°Ïß³Ì
+            // Thread.currentThread() èŽ·å–å½“å‰çº¿ç¨‹
             System.out.println(Thread.currentThread().getName() + "\t" + i);
             if (i == 20) {
-                // ´´½¨²¢Æô¶¯Ò»¸öÏß³Ì
+                // åˆ›å»ºå¹¶å¯åŠ¨ä¸€ä¸ªçº¿ç¨‹
                 new FirstThread().start();
-                // ´´½¨²¢Æô¶¯µÚ¶þ¸öÏß³Ì
+                // åˆ›å»ºå¹¶å¯åŠ¨ç¬¬äºŒä¸ªçº¿ç¨‹
                 new FirstThread().start();
             }
         }

@@ -22,25 +22,8 @@ public class SimpleFinally {
                     e.printStackTrace();
                 }
             }
-            System.out.println("执行finally块中的代码，释放资源");
+            System.out.println("鎵цfinally鍧椾腑鐨勪唬鐮侊紝閲婃斁璧勬簮");
         }
 
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

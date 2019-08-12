@@ -2,7 +2,7 @@ package chapter9;
 
 public class RectangleOfShape extends Shape{
 	public void draw(Canvas c){
-		System.out.println("ÔÚ"+c+"ÉÏ»­Ò»¸ö¾ØĞÎ");
+		System.out.println("åœ¨"+c+"ä¸Šç”»ä¸€ä¸ªçŸ©å½¢");
 	}
 
 }

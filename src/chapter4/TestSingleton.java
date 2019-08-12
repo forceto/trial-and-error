@@ -1,26 +1,22 @@
 package chapter4;
 
 public class TestSingleton {
-	//µ¥ÀıÀà£¬Í¨¹ı¸ÃÀà´´½¨µÄÈÎÒâ¸öÊıµÄÊµÀı¶¼Ö¸ÏòÍ¬Ò»¸ö¶ÔÏó¡£
+	//å•ä¾‹ç±»ï¼Œé€šè¿‡è¯¥ç±»åˆ›å»ºçš„ä»»æ„ä¸ªæ•°çš„å®ä¾‹éƒ½æŒ‡å‘åŒä¸€ä¸ªå¯¹è±¡ã€‚
 	private TestSingleton(){}
 	private int a;
 	private static TestSingleton single=null;
-	public static TestSingleton getInstance()
-	{
+	public static TestSingleton getInstance() {
 		if (single==null)
 			single=new TestSingleton();
 		return single;
 	}
-	public void put()
-	{
+	public void put() {
 		System.out.println("Singleton");
 	}
-	public void setA(int a)
-	{
+	public void setA(int a)	{
 		this.a=a;
 	}
-	public void getA()
-	{
+	public void getA() {
 		System.out.println("a:"+a);
 	}
 }
