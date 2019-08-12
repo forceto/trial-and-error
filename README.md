@@ -1,31 +1,36 @@
-# <center>trial-and-error</center>
+# trial-and-error
 >this is a self-practice repository.
 
-##<center>插入的不同语法</center>
+## 插入的不同语法
 *Set & List --->add*
 
 *Queue  ---> offer*
 
 *Map ---> put*
 
-##<center>性能分析</center>
-###Set
+## 性能分析
+
+
+### Set
+
+
 |EnumSet|HashSet|LinkedHashSet|TreeSet|
 |-------|:------:|:----------:|:-----:|
 |性能最好|最常用，增、删|遍历最快        |排序|
-###List
+
+### List
 
 |ArrayList|ArrayDequeue|LinkedList|
 |----------|:-----------:|:-------:|
 |最常用、随机访问|随机访问	|插入、删除|
 
-###Map
+### Map
 
 |EnumMap   > |HashMap   > |LinkedHashMap  > |TreeMap|
 |------------|:------------:|:-----------------:|-------:|
 |EnumMap性能最好|HashMap最常用|LinkedHashMap迭代性能最好|TreeMap用于查找|
 
-##<center>泛型方法vs泛型通配符</center>
+## 泛型方法vs泛型通配符
 **泛型通配符：**
 <ol>
 	<li>最常用</li>
