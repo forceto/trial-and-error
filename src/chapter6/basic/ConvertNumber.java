@@ -1,7 +1,5 @@
 package chapter6.basic;
 
-import jdk.nashorn.internal.ir.annotations.Ignore;
-
 import java.util.Scanner;
 
 /**
