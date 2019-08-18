@@ -18,7 +18,7 @@
 |整理包（导包） |			`ctrl + shift + O` |
 |合并当前行和下一行 |		`ctrl + alt + J` |
 |跳到指定行 |			`ctrl + L` |
-|跳到匹配的括号（跳到当前方法的末尾） |			`ctrl + shift + P` |
+|跳到匹配的括号 |			`ctrl + shift + P` |
 |上次编辑的地方 |			`ctrl + Q` |
 |保存全部 |				`ctrl + shift + S` |
 |快捷键列表 |			`ctrl + shift + L` |
