@@ -4,13 +4,13 @@
 
 |功能 | 快捷键 |
 |----|---|
-|代码右移 |				`选定后，tab` |
-|代码左移 |				`选定后，shift + tab` |
+|代码右移 |				选定后，`tab` |
+|代码左移 |				选定后，`shift + tab` |
 |自动对其格式 |				`ctrl + shift + F` |
 |打开资源 |				`Ctrl + shift + R` |
 |切换已代开的编辑窗口 |		`ctrl + E` |
-|多行注释 |				`选定后，ctrl + shift + /` |
-|取消多行注释 |				`光标落在注释范围内，ctrl + shift + \` |
+|多行注释 |				选定后，`ctrl + shift + /` |
+|取消多行注释 |				光标落在注释范围内，`ctrl + shift + \` |
 |找具体的类 |				`ctrl + shift + T` |
 |抽取方法 |				`ctrl + shift + M` |
 |重命名 (类名、变量名) |		`alt + shift + R` |
