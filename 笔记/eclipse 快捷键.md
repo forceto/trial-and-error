@@ -13,7 +13,7 @@
 |取消多行注释 |				`光标落在注释范围内，ctrl + shift + \` |
 |找具体的类 |				`ctrl + shift + T` |
 |抽取方法 |				`ctrl + shift + M` |
-|重命名 |(类名、变量名)		`alt + shift + R` |
+|重命名 (类名、变量名) |		`alt + shift + R` |
 |自动生成代码 |			`alt + shift + S` |
 |整理包（导包） |			`ctrl + shift + O` |
 |合并当前行和下一行 |		`ctrl + alt + J` |
