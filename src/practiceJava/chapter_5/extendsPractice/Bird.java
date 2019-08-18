@@ -1,4 +1,4 @@
-package practiceJava.chapter_5;
+package practiceJava.chapter_5.extendsPractice;
 
 public class Bird extends Animal{
 	

@@ -1,4 +1,4 @@
-package practiceJava.chapter_5;
+package practiceJava.chapter_5.extendsPractice;
 
 public class Animal {
 	public int eye = 4;

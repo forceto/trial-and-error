@@ -1,4 +1,4 @@
-package practiceJava.chapter_5;
+package practiceJava.chapter_5.extendsPractice;
 
 public class Card1 extends Number_PhoneCard{
 	

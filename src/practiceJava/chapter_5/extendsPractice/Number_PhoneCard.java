@@ -1,4 +1,4 @@
-package practiceJava.chapter_5;
+package practiceJava.chapter_5.extendsPractice;
 
 abstract class Number_PhoneCard extends PhoneCard{
 	public long cardNumber;
