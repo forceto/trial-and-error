@@ -26,6 +26,7 @@ public class SelectionGramma {
 					break;
 				default:
 					System.out.println("辅音");
+					
 				
 			}
 		}
